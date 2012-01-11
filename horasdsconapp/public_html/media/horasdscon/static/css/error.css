@@ -1,0 +1,49 @@
+body
+{
+font-size:12px;
+background-color:#efe3a2;
+margin:0px;
+overflow:auto;
+background-image:url('../images/error/background.jpg');
+background-repeat:repeat-x;
+}
+
+#logo
+{
+background-color:#ffffff;
+float: left;
+width: 10%;
+}
+#titulosite
+{
+background-color:#ffffff;
+text-align: center;
+float: left;
+padding-top: 1px;
+width: 90%;
+height: 59px;
+}
+#conteudo
+{
+background-color: yellow;
+margin-top: 100px;
+text-align: center;
+position: relative;
+clear: left;
+}
+#conteudodesc
+{
+margin-top: 100px;
+text-align: center;
+position: relative;
+}
+#conteudolink
+{
+margin-top: 100px;
+text-align: center;
+position: relative;
+}
+a
+{
+font-size: large;
+}
