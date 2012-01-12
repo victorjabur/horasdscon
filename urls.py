@@ -9,6 +9,7 @@ handler500 = 'horasdsconapp.views.handle_error500'
 
 urlpatterns = patterns('horasdsconapp.views',
     (r'^$', 'index'),
+    (r'^token=(?P<token>\d+)/$', 'index_authenticated')
 )
 
 #urlpatterns = patterns('',
