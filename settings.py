@@ -5,7 +5,7 @@
 import os
 
 from ConfigParser import RawConfigParser
-from julianajaburapp import Util
+from horasdsconapp import Util
 
 util = Util.Util()
 
@@ -116,9 +116,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'horasdscon.urls'
+ROOT_URLCONF = 'urls'
 
-TEMPLATE_DIRS = ('/home/victor/app/github/horasdscon/templates',)
+TEMPLATE_DIRS = (util.getEntry('django_settings', 'TEMPLATE_DIRS', PYTHON_CONF),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
