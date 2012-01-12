@@ -25,7 +25,16 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/horasdsconapp/public_html/media/horasdscon/template/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="51" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
+            <state line="7" column="47" selection-start="205" selection-end="221" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index_authenticated.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/horasdsconapp/public_html/media/horasdscon/template/index_authenticated.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="34" selection-start="119" selection-end="119" vertical-scroll-proportion="-3.75">
               <folding />
             </state>
           </provider>
@@ -49,19 +58,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="32" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0">
+            <state line="11" column="16" selection-start="356" selection-end="356" vertical-scroll-proportion="0.32868525">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/horasdsconapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="19" selection-start="673" selection-end="673" vertical-scroll-proportion="0.4183267">
+            <state line="20" column="0" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -121,10 +130,10 @@
         <option value="$PROJECT_DIR$/../deploy/deployProject.py" />
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/horasdsconapp/public_html/media/horasdscon/template/index.html" />
+        <option value="$PROJECT_DIR$/horasdsconapp/google/auth.py" />
+        <option value="$PROJECT_DIR$/horasdsconapp/views.py" />
         <option value="$PROJECT_DIR$/horasdsconapp/public_html/media/horasdscon/template/index_authenticated.html" />
         <option value="$PROJECT_DIR$/urls.py" />
-        <option value="$PROJECT_DIR$/horasdsconapp/views.py" />
-        <option value="$PROJECT_DIR$/horasdsconapp/google/auth.py" />
       </list>
     </option>
   </component>
@@ -589,7 +598,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-5" width="1602" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -599,7 +608,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2270195" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2270195" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -725,20 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/horasdsconapp/public_html/media/horasdscon/template/index_authenticated.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="102" selection-end="102" vertical-scroll-proportion="0.18828452">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/horasdsconapp/public_html/media/horasdscon/template/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="51" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../julianajabur/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="30" selection-start="779" selection-end="795" vertical-scroll-proportion="0.0">
@@ -764,19 +759,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/urls.py">
+    <entry file="file://$PROJECT_DIR$/horasdsconapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="32" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0">
+        <state line="20" column="0" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/horasdsconapp/public_html/media/horasdscon/template/index_authenticated.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="34" selection-start="119" selection-end="119" vertical-scroll-proportion="-3.75">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/horasdsconapp/views.py">
+    <entry file="file://$PROJECT_DIR$/horasdsconapp/public_html/media/horasdscon/template/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="19" selection-start="673" selection-end="673" vertical-scroll-proportion="0.4183267">
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
+        <state line="7" column="47" selection-start="205" selection-end="221" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="16" selection-start="356" selection-end="356" vertical-scroll-proportion="0.32868525">
+          <folding />
         </state>
       </provider>
     </entry>
