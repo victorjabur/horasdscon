@@ -9,3 +9,8 @@ def GetAuthSubUrl():
     session = True
     gd_client = gdata.spreadsheet.service.SpreadsheetsService()
     return gd_client.GenerateAuthSubURL(next, scope, secure, session);
+
+def UpgradeToSessionToken(authsub_token):
+    gd_client = gdata.spreadsheet.service.SpreadsheetsService()
+    gd_client.auth_token = authsub_token
+    gd_client.UpgradeToSessionToken()

@@ -13,8 +13,9 @@ def handle_error404(request, template_name='error/404.html'):
     return render_to_response(template_name, context_instance = RequestContext(request))
 
 def index(request):
-    authSubUrl = auth.GetAuthSubUrl()
-    return render_to_response('index.html', {'authSubUrl': authSubUrl}, context_instance=RequestContext(request))
-
-def index_authenticated(request):
-    return render_to_response('index_authenticated.html')
+    token = request.GET.get('token')
+    if token != None and len(token) > 0:
+        return render_to_response('index_authenticated.html', {'token': token}, context_instance=RequestContext(request))
+    else:
+        authSubUrl = auth.GetAuthSubUrl()
+        return render_to_response('index.html', {'authSubUrl': authSubUrl}, context_instance=RequestContext(request))
