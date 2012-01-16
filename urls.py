@@ -1,3 +1,4 @@
+import os
 from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
@@ -9,6 +10,12 @@ handler500 = 'horasdsconapp.views.handle_error500'
 
 urlpatterns = patterns('horasdsconapp.views',
     (r'^$', 'index'),
+    (r'^oauth2callback.*', 'auth_return'),
+)
+
+urlpatterns += patterns('',
+    (r'^admin/', include(admin.site.urls)),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 )
 
 #urlpatterns = patterns('',
