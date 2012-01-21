@@ -7,6 +7,12 @@ import os
 from ConfigParser import RawConfigParser
 from horasdsconapp import Util
 
+try:
+    import social_auth
+except ImportError:
+    import sys
+    sys.path.insert(0, "..")
+
 util = Util.Util()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -130,6 +136,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'social_auth',
     'horasdsconapp',
 )
 
@@ -155,3 +162,35 @@ LOGGING = {
         },
     }
 }
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuthBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.yahoo.YahooBackend',
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'social_auth.backends.contrib.flickr.FlickrBackend',
+    'social_auth.backends.OpenIDBackend',
+    'social_auth.backends.contrib.livejournal.LiveJournalBackend',
+    'django.contrib.auth.backends.ModelBackend',
+    )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.contrib.messages.context_processors.messages',
+    'social_auth.context_processors.social_auth_by_type_backends',
+    )
+
+GOOGLE_OAUTH_EXTRA_SCOPE = ['https://spreadsheets.google.com/feeds/']
+
+LOGIN_REDIRECT_URL = '/'
+
+try:
+    from local_settings import *
+except:
+    pass

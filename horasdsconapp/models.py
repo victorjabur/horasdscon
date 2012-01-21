@@ -1,27 +1,26 @@
-import pickle
-import base64
-
-from django.contrib import admin
-from django.contrib.auth.models import User
+# Define a custom User class to work with django-social-auth
 from django.db import models
 
-from oauth2client.django_orm import FlowField
-from oauth2client.django_orm import CredentialsField
 
-class FlowModel(models.Model):
-    id = models.ForeignKey(User, primary_key=True)
-    flow = FlowField()
+class CustomUserManager(models.Manager):
+    def create_user(self, username, email):
+        return self.model._default_manager.create(username=username)
 
-class CredentialsModel(models.Model):
-    id = models.ForeignKey(User, primary_key=True)
-    credential = CredentialsField()
 
-class CredentialsAdmin(admin.ModelAdmin):
-    pass
+class CustomUser(models.Model):
+    username = models.CharField(max_length=128)
+    last_login = models.DateTimeField(blank=True, null=True)
 
-class FlowAdmin(admin.ModelAdmin):
-    pass
+    objects = CustomUserManager()
 
-#admin.site.register(CredentialsModel, CredentialsAdmin)
-#admin.site.register(FlowModel, FlowAdmin)
+    def is_authenticated(self):
+        return True
 
+
+from social_auth.signals import pre_update
+from social_auth.backends.facebook import FacebookBackend
+
+def facebook_extra_values(sender, user, response, details, **kwargs):
+    return False
+
+pre_update.connect(facebook_extra_values, sender=FacebookBackend)
