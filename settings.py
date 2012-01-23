@@ -19,6 +19,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 PYTHON_CONF = os.path.abspath(os.path.join(BASE_DIR, '../../python_conf/horasdscon/settings.ini'))
 
+util.setConfigurationFile(PYTHON_CONF)
+
 config = RawConfigParser()
 config.read(PYTHON_CONF)
 
@@ -94,7 +96,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    util.getEntry('django_settings', 'STATIC_DIR', PYTHON_CONF),
+    util.getEntry('django_settings', 'STATIC_DIR'),
 )
 
 # List of finder classes that know how to find static files in
@@ -125,7 +127,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
-TEMPLATE_DIRS = (util.getEntry('django_settings', 'TEMPLATE_DIRS', PYTHON_CONF),)
+TEMPLATE_DIRS = (util.getEntry('django_settings', 'TEMPLATE_DIRS'),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -188,7 +190,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 GOOGLE_OAUTH_EXTRA_SCOPE = ['https://spreadsheets.google.com/feeds/']
 
+SOCIAL_AUTH_ENABLED_BACKENDS = ('google-oauth2')
+
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/'
+LOGIN_ERROR_URL    = '/login-error/'
 
 try:
     from local_settings import *

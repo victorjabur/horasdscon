@@ -6,15 +6,19 @@ from ConfigParser import RawConfigParser
 
 class Util:
 
+    def __init__(self):
+        self.PYTHON_CONF = ''
+
+    def setConfigurationFile(self, PYTHON_CONF):
+        self.PYTHON_CONF = PYTHON_CONF
+
     def getConfigurationFile(self, caminhoArquivoConfiguracao):
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        PYTHON_CONF = os.path.abspath(self.pathJoin(BASE_DIR, caminhoArquivoConfiguracao))
         config = RawConfigParser()
-        config.read(PYTHON_CONF)
+        config.read(self.PYTHON_CONF)
         return config
 
-    def getEntry(self, setor, chave, caminhoArquivoConfiguracao):
-        config = self.getConfigurationFile(caminhoArquivoConfiguracao)
+    def getEntry(self, setor, chave):
+        config = self.getConfigurationFile(self.PYTHON_CONF)
         conf = config.get(setor, chave)
         conf = conf.replace('RAIZ_LOCAL', config.get('geral', 'RAIZ_LOCAL'))
         conf = conf.replace('RAIZ_REMOTA', config.get('geral', 'RAIZ_REMOTA'))
