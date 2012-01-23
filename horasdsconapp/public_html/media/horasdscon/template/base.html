@@ -1,16 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
-    <title>Django Social Auth</title>
-    <meta name="description" content="Django Social Auth is an easy to setup social authentication/registration mechanism for Django projects." />
-    <meta name="keywords" content="django, django login, django auth, django facebook, django twitter, django openid, django oauth, social auth, openid, oauth, twitter, facebook, google, yahoo, myopenid, python" />
+    <title>Dscon - Aplicação de Lançamento de Horas</title>
+    <meta name="description" content="Dscon - Aplicação de Lançamento de Horas" />
+    <meta name="keywords" content="horas dscon lançamento" />
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
     <style type="text/css">
-      body {background-color: #eee; padding: 10px 20px; font-family: sans-serif; color: #333;}
+      body {background-color: #eee; padding: 3px 20px; font-family: sans-serif; color: #333;}
       h1, h2, h3 {margin: 0; padding: 0;}
       h1 {font-size: 1.8em; border-bottom: 1px solid #bbb; width: 95%;}
       h2 {font-size: 1.3em; border-bottom: 1px solid #ddd; width: 85%;}
       h3 {font-size: 1.2em;}
+      p {line-height: 180%;}
       a, a:visited {color: #459FDA; text-decoration: none;}
       a:hover {text-decoration: underline;}
       a img {border: 0;}
@@ -20,25 +21,30 @@
       th {text-align: left; padding-right: 25px; font-weight: normal;}
       th, td {padding: 5px 15px;}
       tr.even {background-color: #ddd;}
-      #heading {margin-top: 2.3em;}
+      .heading {position: relative; float: left; margin-top: 1.3em;}
+      .imgheader {position: relative; width: 100%}
+      .docs {float: left;}
       #content {padding: 0 20px;}
       .helptext {font-size: 0.9em; color: #aaa; margin: 0; padding: 0;}
       .description {font-size: 1.0em; color: #333;}
       a.logout, span.disconnect a, .error {color: #c00;}
       .error {padding-left: 30px;}
-      #forkme {position: absolute; top: 0; right: 0;}
+      .header { clear: both; margin-left: 70px; margin-right: 20px}
+      .contentcenter {clear: both; margin-left: auto; margin-right: auto; text-align: center;}
       #valid-badges {position: fixed; right: 10px; bottom: 10px;}
       #valid-badges p {display: inline;}
     </style>
   </head>
   <body>
-    <h1>Django Social Auth (v{{ version }})</h1>
-    <p class="description">
-      Django Social Auth is an easy to setup social authentication/registration mechanism for Django projects.
-    </p>
-    <p>Check the documentation on <a href="https://github.com/omab/django-social-auth#readme" title="docs">Github</a></p>
+    <div class="imgheader">
+        <a id="logods" href="http://www.dscon.com.br" target="_blank"><img style="width: 160px; height: 75px" src="/media/horasdscon/static/images/logods.png"/></a>
+        <a id="logopmo" href="http://www.dscon.com.br/pmo" target="_blank" style="position: absolute; left: 40%"><img style="width: 160px; height: 75px" src="/media/horasdscon/static/images/logopmo.png"/></a>
+        <a id="logopartner" href="http://www.dscon.com.br" target="_blank" style="position: absolute; padding: 20px; right: 0"><img src="/media/horasdscon/static/images/logopartner.png"/></a>
+    </div>
 
-    <h2 id="heading">{% block heading %}{% endblock %}</h2>
+    <div class=heading>
+        {% block heading %}{% endblock %}
+    </div>
     <div id="content">
       {% block content %}{% endblock %}
     </div>
@@ -55,7 +61,5 @@
         </a>
       </p>
     </div>
-
-    <div><a id="forkme" href="http://github.com/omab/django-social-auth"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a></div>
   </body>
 </html>

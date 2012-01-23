@@ -52,30 +52,6 @@ def logout(request):
     return HttpResponseRedirect('/')
 
 @login_required
-def index(request):
-    storage = Storage(CredentialsModel, 'id', request.user, 'credential')
-    credential = storage.get()
-    if credential is None or credential.invalid == True:
-        flow = OAuth2WebServerFlow(
-            client_id = settings.util.getEntry('google_oauth', 'CLIENT_ID', settings.PYTHON_CONF),
-            client_secret = settings.util.getEntry('google_oauth', 'CLIENT_SECRET', settings.PYTHON_CONF),
-            scope='https://spreadsheets.google.com/feeds/',
-            user_agent='lancamento_horas_dscon/1.0',
-        )
-        authorize_url = flow.step1_get_authorize_url(STEP2_URI)
-        f = FlowModel(id=request.user, flow=flow)
-        f.save()
-        return render_to_response('index.html', {'authorize_url': authorize_url}, context_instance = RequestContext(request))
-    else:
-        http = httplib2.Http()
-        http = credential.authorize(http)
-        service = build("feeds", "v1", http=http)
-        gd_client = service.SpreadsheetsService()
-        feed = gd_client.GetSpreadsheetsFeed()
-        logging.info(feed)
-        return render_to_response('welcome.html', {'feed': feed,})
-
-@login_required
 def auth_return(request):
     error = request.GET.get('error')
     if error != None and len(error) > 0:
