@@ -21,7 +21,55 @@
     <favorites_list name="horasdscon" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/horasdsconapp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="15" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="done.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/horasdsconapp/web/template/done.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="12" selection-start="1178" selection-end="1178" vertical-scroll-proportion="-5.2083335">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/manage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="44" selection-start="239" selection-end="239" vertical-scroll-proportion="0.23076923">
+              <folding>
+                <element signature="e#22#72#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/horasdsconapp/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="31" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="192" column="32" selection-start="6334" selection-end="6334" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -46,19 +94,20 @@
         <option value="$PROJECT_DIR$/horasdsconapp/web/template/base.html" />
         <option value="$PROJECT_DIR$/local_settings.py" />
         <option value="$PROJECT_DIR$/horasdsconapp/Util.py" />
-        <option value="$PROJECT_DIR$/python_conf/horasdscon/settings.ini" />
         <option value="$PROJECT_DIR$/horasdsconapp/views.py" />
-        <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/../Utilitarios/backup_arquivos_modificados.py" />
         <option value="$PROJECT_DIR$/../Utilitarios/lancto.py" />
         <option value="$PROJECT_DIR$/../Utilitarios/horas.py" />
+        <option value="$PROJECT_DIR$/python_conf/horasdscon/settings.ini" />
+        <option value="$PROJECT_DIR$/settings.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
-    <option name="width" value="1600" />
-    <option name="height" value="846" />
+    <option name="x" value="-1" />
+    <option name="y" value="-5" />
+    <option name="width" value="1602" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -100,17 +149,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="deploy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="horasdscon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Utilitarios" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -121,6 +160,82 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python_conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="python_conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdsconapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdsconapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdsconapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -132,12 +247,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$USER_HOME$/.virtualenvs/locaweb/lib/python2.6" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -156,7 +271,7 @@
       <recent name="$PROJECT_DIR$/../deploy" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.horas">
+  <component name="RunManager" selected="Django server.horasdscon">
     <configuration default="false" name="backup_arquivos_modificados" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -213,15 +328,25 @@
       <option name="MULTIPROCESS" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
-      <module name="" />
-      <option name="PORT" value="10000" />
-      <option name="HOST" value="localhost" />
-      <option name="USE_MAPPING" value="false" />
-      <option name="REMOTE_ROOT" value="" />
-      <option name="LOCAL_ROOT" value="" />
-      <option name="REDIRECT_OUTPUT" value="true" />
-      <option name="SUSPEND_AFTER_CONNECT" value="true" />
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="horasdscon" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -243,25 +368,15 @@
       <option name="PUREUNITTEST" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <module name="horasdscon" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <option name="launchJavascriptDebuger" value="false" />
+    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
+      <module name="" />
+      <option name="PORT" value="10000" />
+      <option name="HOST" value="localhost" />
+      <option name="USE_MAPPING" value="false" />
+      <option name="REMOTE_ROOT" value="" />
+      <option name="LOCAL_ROOT" value="" />
+      <option name="REDIRECT_OUTPUT" value="true" />
+      <option name="SUSPEND_AFTER_CONNECT" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -324,14 +439,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1600" height="846" extended-state="6" />
-    <editor active="false" />
+    <frame x="-1" y="-5" width="1602" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15096775" sideWeight="0.72562677" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33483872" sideWeight="0.72562677" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46239555" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44634527" sideWeight="0.49756098" order="9" side_tool="true" content_ui="tabs" />
@@ -398,26 +513,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/horasdsconapp/public_html/media/horasdscon/template/done.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="19" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/horasdsconapp/web/template/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="40" selection-start="2016" selection-end="2016" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/horasdsconapp/web/template/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="35" selection-start="438" selection-end="438" vertical-scroll-proportion="0.22556391" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python_conf/horasdscon/settings.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="9" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/horasdsconapp/Util.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="257" selection-end="257" vertical-scroll-proportion="0.26124817" />
@@ -428,68 +523,86 @@
         <state line="17" column="53" selection-start="801" selection-end="801" vertical-scroll-proportion="0.3701016" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../Utilitarios/rename_file_dir_content.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1036" selection-end="1063" vertical-scroll-proportion="0.7837446" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deploy/SFTPLocaweb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="180" selection-end="503" vertical-scroll-proportion="0.26124817" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../deploy/deployProject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="42" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.7402032" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Utilitarios/lancto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="61" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Utilitarios/backup_arquivos_modificados.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="49" selection-start="163" selection-end="163" vertical-scroll-proportion="0.18292683" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_conf/horasdscon/indexmd5">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="45" selection-start="530" selection-end="530" vertical-scroll-proportion="0.30478954" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/horasdsconapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="15" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
+    <entry file="file://$PROJECT_DIR$/../Utilitarios/horas.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="503" selection-end="503" vertical-scroll-proportion="0.3106509" />
+        <state line="17" column="19" selection-start="567" selection-end="567" vertical-scroll-proportion="0.35502958">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/urls.py">
+    <entry file="file://$PROJECT_DIR$/python_conf/horasdscon/settings.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="45" selection-start="530" selection-end="530" vertical-scroll-proportion="0.32656023" />
+        <state line="11" column="13" selection-start="215" selection-end="215" vertical-scroll-proportion="0.33536586">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/horasdsconapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="31" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="0" selection-start="6430" selection-end="6430" vertical-scroll-proportion="0.7822932" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Utilitarios/rename_file_dir_content.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1036" selection-end="1063" vertical-scroll-proportion="0.7837446">
+        <state line="192" column="32" selection-start="6334" selection-end="6334" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../deploy/SFTPLocaweb.py">
+    <entry file="file://$PROJECT_DIR$/horasdsconapp/web/template/done.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="180" selection-end="503" vertical-scroll-proportion="0.26124817">
+        <state line="33" column="12" selection-start="1178" selection-end="1178" vertical-scroll-proportion="-5.2083335">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../deploy/deployProject.py">
+    <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="42" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.7402032">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Utilitarios/lancto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="61" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Utilitarios/horas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="18" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0">
+        <state line="7" column="44" selection-start="239" selection-end="239" vertical-scroll-proportion="0.23076923">
           <folding>
-            <element signature="e#48#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Utilitarios/backup_arquivos_modificados.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="49" selection-start="163" selection-end="163" vertical-scroll-proportion="0.18292683">
-          <folding>
-            <element signature="e#20#49#0" expanded="true" />
+            <element signature="e#22#72#0" expanded="true" />
           </folding>
         </state>
       </provider>

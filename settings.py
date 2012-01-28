@@ -190,7 +190,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 GOOGLE_OAUTH_EXTRA_SCOPE = ['https://spreadsheets.google.com/feeds/']
 
-SOCIAL_AUTH_ENABLED_BACKENDS = ('google-oauth2')
+SOCIAL_AUTH_ENABLED_BACKENDS = ('google-oauth2',)
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/'
