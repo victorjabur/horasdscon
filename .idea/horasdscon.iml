@@ -15,6 +15,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="horasdscon" />
     <orderEntry type="module" module-name="deploy" />
+    <orderEntry type="module" module-name="Utilitarios" />
   </component>
   <component name="TemplatesService">
     <option name="templateLanguage" value="Django" />
