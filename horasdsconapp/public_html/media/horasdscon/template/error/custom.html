@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Aplicação de Lançamento de Horas da Dscon</title>
-    <STYLE type="text/css">
-        .center {
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-    </STYLE>
-</head>
-<body>
-<div id="logo" class="center">
-    <img src="/media/horasdscon/static/images/logo_gif.png"/>
-</div>
-<div id="docs" class="center">
-    <p>{{ error_message }}</p>
-    <p><a href="http://horasdscon.victorjabur.com">Voltar para a Home</a></p>
-</div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="header">
+        <h1>Dscon - Aplicativo de Lançamento de Horas</h1>
+    </div>
+
+    <div class="contentcenter">
+        <p>{{ error_message }}</p>
+        <p><a href="http://horasdscon.victorjabur.com">Voltar para a Home</a></p>
+    </div>
+
+{% endblock %}

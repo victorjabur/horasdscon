@@ -3,7 +3,7 @@ from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-from horasdsconapp.views import home, done, logout, error
+from horasdsconapp.views import home, done, logout, error, complete
 admin.autodiscover()
 
 handler404 = 'horasdsconapp.views.handle_error404'
@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^logout/$', logout, name='logout'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^complete/(?P<backend>[^/]+)/$', complete, name='complete'),
     url(r'', include('social_auth.urls')),
 )
 
