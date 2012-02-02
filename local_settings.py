@@ -1,7 +1,7 @@
 from settings import util
 
-GOOGLE_CONSUMER_KEY               = util.getEntry('google_oauth2','GOOGLE_CONSUMER_KEY')
-GOOGLE_CONSUMER_SECRET            = util.getEntry('google_oauth2','GOOGLE_CONSUMER_SECRET')
+#GOOGLE_CONSUMER_KEY               = util.getEntry('google_oauth2','GOOGLE_CONSUMER_KEY')
+#GOOGLE_CONSUMER_SECRET            = util.getEntry('google_oauth2','GOOGLE_CONSUMER_SECRET')
 GOOGLE_OAUTH2_CLIENT_ID           = util.getEntry('google_oauth2','CLIENT_ID')
 GOOGLE_OAUTH2_CLIENT_SECRET       = util.getEntry('google_oauth2','CLIENT_SECRET')
 SOCIAL_AUTH_CREATE_USERS          = True

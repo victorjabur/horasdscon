@@ -4,14 +4,26 @@ import gdata.service
 import atom.service
 import gdata.spreadsheet
 import atom
-from social_auth.models import Association
+from social_auth.models import UserSocialAuth
+import gdata.spreadsheets.client
+import gdata.gauth
 
 
 class GoogleSpreadsheet:
 
     def __init__(self, request, token):
-        self.gd_client = gdata.spreadsheet.service.SpreadsheetsService()
-        association = Association.objects.get(user=request.user)
+        socialuser = UserSocialAuth.objects.get(user=request.user)
+        a=socialuser.extra_data['access_token']
+        token = gdata.gauth.OAuth2Token(client_id=util.getEntry('google_oauth2','CLIENT_ID'),
+            client_secret=util.getEntry('google_oauth2','CLIENT_SECRET'),
+            scope='https://spreadsheets.google.com/feeds/',
+            user_agent='horasdscon',
+            access_token=socialuser.extra_data['access_token'],
+            refresh_token=socialuser.extra_data['refresh_token'])
+        self.gd_client = gdata.spreadsheets.client.SpreadsheetsClient()
+        token.authorize(self.gd_client)
+
+        #association = Association.objects.get(user=request.user)
         google_session_token=association.handle
         google_secret=association.secret
 

@@ -25,10 +25,8 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/horasdsconapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="45" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-              </folding>
+            <state line="33" column="0" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -36,16 +34,16 @@
       <file leaf-file-name="local_settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local_settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="89" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
+            <state line="5" column="82" selection-start="325" selection-end="371" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.ini" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="settings.ini" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python_conf/horasdscon/settings.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="28" selection-start="385" selection-end="398" vertical-scroll-proportion="0.71428573">
+            <state line="43" column="4" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -54,10 +52,19 @@
       <file leaf-file-name="spreadsheet.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/horasdsconapp/google/spreadsheet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="29" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0">
+            <state line="19" column="33" selection-start="687" selection-end="687" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="horas.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../Utilitarios/horas.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="73" selection-start="325" selection-end="335" vertical-scroll-proportion="0.24096386">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,8 +81,19 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.virtualenvs/locaweb/lib/python2.6/site-packages/django_social_auth-0.6.1-py2.6.egg/social_auth/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="6" selection-start="1877" selection-end="1877" vertical-scroll-proportion="0.0">
+            <state line="24" column="20" selection-start="607" selection-end="621" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../julianajabur/julianajaburapp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="7" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,18 +125,17 @@
         <option value="$PROJECT_DIR$/urls.py" />
         <option value="$PROJECT_DIR$/../deploy/deployProject.py" />
         <option value="$PROJECT_DIR$/horasdsconapp/views.py" />
-        <option value="$PROJECT_DIR$/horasdsconapp/google/spreadsheet.py" />
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/python_conf/horasdscon/settings.ini" />
         <option value="$PROJECT_DIR$/local_settings.py" />
+        <option value="$PROJECT_DIR$/horasdsconapp/google/spreadsheet.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="-5" />
-    <option name="width" value="1602" />
-    <option name="height" value="876" />
+    <option name="y" value="24" />
+    <option name="width" value="1600" />
+    <option name="height" value="846" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -146,13 +163,46 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="horasdscon" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="julianajabur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="julianajabur" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="julianajaburapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="horasdscon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Utilitarios" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -231,17 +281,18 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="last_opened_file_path" value="$USER_HOME$/.virtualenvs/locaweb/lib/python2.6" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -317,25 +368,15 @@
       <option name="MULTIPROCESS" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <module name="horasdscon" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <option name="launchJavascriptDebuger" value="false" />
+    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
+      <module name="" />
+      <option name="PORT" value="10000" />
+      <option name="HOST" value="localhost" />
+      <option name="USE_MAPPING" value="false" />
+      <option name="REMOTE_ROOT" value="" />
+      <option name="LOCAL_ROOT" value="" />
+      <option name="REDIRECT_OUTPUT" value="true" />
+      <option name="SUSPEND_AFTER_CONNECT" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -357,15 +398,25 @@
       <option name="PUREUNITTEST" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
-      <module name="" />
-      <option name="PORT" value="10000" />
-      <option name="HOST" value="localhost" />
-      <option name="USE_MAPPING" value="false" />
-      <option name="REMOTE_ROOT" value="" />
-      <option name="LOCAL_ROOT" value="" />
-      <option name="REDIRECT_OUTPUT" value="true" />
-      <option name="SUSPEND_AFTER_CONNECT" value="true" />
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="horasdscon" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -428,15 +479,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-5" width="1602" height="876" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="24" width="1600" height="846" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2232258" sideWeight="0.53760445" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46239555" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2264516" sideWeight="0.7855153" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21448468" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44634527" sideWeight="0.49756098" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27437326" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -502,45 +553,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/horasdsconapp/views.py</url>
-          <line>33</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/horasdsconapp/google/spreadsheet.py</url>
-          <line>18</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/horasdsconapp/google/spreadsheet.py</url>
-          <line>22</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/horasdsconapp/google/spreadsheet.py</url>
-          <line>12</line>
+          <line>14</line>
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../julianajabur/julianajaburapp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="71" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.8693759" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/horasdsconapp/web/template/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="8" selection-start="569" selection-end="596" vertical-scroll-proportion="-8.75" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="39" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/locaweb/lib/python2.6/site-packages/django_social_auth-0.6.1-py2.6.egg/social_auth/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="4" selection-start="3624" selection-end="3624" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../deploy/Mapeamento.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -563,60 +582,82 @@
     </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/locaweb/lib/python2.6/site-packages/Django-1.3.1-py2.6.egg/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="0" selection-start="4626" selection-end="4626" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="110" column="0" selection-start="4626" selection-end="4626" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/locaweb/lib/python2.6/site-packages/Django-1.3.1-py2.6.egg/django/contrib/auth/decorators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="796" selection-end="796" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/horasdsconapp/google/spreadsheet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="29" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/horasdsconapp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="45" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/locaweb/lib/python2.6/site-packages/django_social_auth-0.6.1-py2.6.egg/social_auth/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="6" selection-start="1877" selection-end="1877" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="0" selection-start="796" selection-end="796" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="0" selection-start="5872" selection-end="5872" vertical-scroll-proportion="0.0">
+        <state line="185" column="0" selection-start="5872" selection-end="5872" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_conf/horasdscon/settings.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="4" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/locaweb/lib/python2.6/site-packages/gdata-2.0.16-py2.6.egg/gdata/spreadsheet/service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="6" selection-start="1429" selection-end="1429" vertical-scroll-proportion="-4.675188">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/locaweb/lib/python2.6/site-packages/Django-1.3.1-py2.6.egg/django/contrib/auth/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local_settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="89" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
+        <state line="5" column="82" selection-start="325" selection-end="371" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python_conf/horasdscon/settings.ini">
+    <entry file="file://$PROJECT_DIR$/../julianajabur/julianajaburapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="28" selection-start="385" selection-end="398" vertical-scroll-proportion="0.71428573">
+        <state line="20" column="7" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/horasdsconapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/locaweb/lib/python2.6/site-packages/django_social_auth-0.6.1-py2.6.egg/social_auth/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="20" selection-start="607" selection-end="621" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/horasdsconapp/google/spreadsheet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="33" selection-start="687" selection-end="687" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Utilitarios/horas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="73" selection-start="325" selection-end="335" vertical-scroll-proportion="0.24096386">
           <folding />
         </state>
       </provider>
