@@ -191,3 +191,5 @@ try:
     from local_settings import *
 except:
     pass
+
+NOME_PLANILHA_HORAS = 'horasdscon_app'

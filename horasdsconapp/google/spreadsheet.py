@@ -1,47 +1,44 @@
-from xml.etree import ElementTree
 import gdata.spreadsheet.service
+import settings
+from settings import util
 import gdata.service
-import atom.service
 import gdata.spreadsheet
-import atom
 from social_auth.models import UserSocialAuth
 import gdata.spreadsheets.client
 import gdata.gauth
+import gdata.docs.data
+import gdata.docs.client
+from gdata.spreadsheet.text_db import DatabaseClient
 
 
 class GoogleSpreadsheet:
 
-    def __init__(self, request, token):
+    def __init__(self, request):
         socialuser = UserSocialAuth.objects.get(user=request.user)
-        a=socialuser.extra_data['access_token']
-        token = gdata.gauth.OAuth2Token(client_id=util.getEntry('google_oauth2','CLIENT_ID'),
+        self.token = gdata.gauth.OAuth2Token(client_id=util.getEntry('google_oauth2','CLIENT_ID'),
             client_secret=util.getEntry('google_oauth2','CLIENT_SECRET'),
             scope='https://spreadsheets.google.com/feeds/',
             user_agent='horasdscon',
             access_token=socialuser.extra_data['access_token'],
             refresh_token=socialuser.extra_data['refresh_token'])
         self.gd_client = gdata.spreadsheets.client.SpreadsheetsClient()
-        token.authorize(self.gd_client)
+        self.token.authorize(self.gd_client)
 
-        #association = Association.objects.get(user=request.user)
-        google_session_token=association.handle
-        google_secret=association.secret
+    def ExtractKey(self, entry):
+        return entry.id.text.split('/')[-1]
 
-    def _PromptForSpreadsheet(self):
-        feed = self.gd_client.GetSpreadsheetsFeed()
-        self._PrintFeed(feed)
+    def FindKeyOfEntryNamed(self, feed, name, kind='spreadsheet'):
+        entry = [e for e in feed.entry if e.title.text == name]
+        if not entry:
+            raise Error('Can\'t find %s named %s', kind, name)
+        if len(entry) > 1:
+            raise Error('More than one %s named %s', kind, name)
+        return self.ExtractKey(entry[0])
 
-    def _PrintFeed(self, feed):
-        for i, entry in enumerate(feed.entry):
-            if isinstance(feed, gdata.spreadsheet.SpreadsheetsCellsFeed):
-                print '%s %s\n' % (entry.title.text, entry.content.text)
-            elif isinstance(feed, gdata.spreadsheet.SpreadsheetsListFeed):
-                print '%s %s %s' % (i, entry.title.text, entry.content.text)
-                # Print this row's value for each column (the custom dictionary is
-                # built using the gsx: elements in the entry.)
-                print 'Contents:'
-                for key in entry.custom:
-                    print '  %s: %s' % (key, entry.custom[key].text)
-                print '\n',
-            else:
-                print '%s %s\n' % (i, entry.title.text)
+    def planilha_existe(self):
+        feed = self.gd_client.GetSpreadsheets()
+        try:
+            self.FindKeyOfEntryNamed(feed, settings.NOME_PLANILHA_HORAS)
+            return True
+        except:
+            return False

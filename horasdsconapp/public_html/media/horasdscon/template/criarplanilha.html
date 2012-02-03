@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block heading %}{% endblock %}
+
+{% block content %}
+    <div style="margin-left: auto; margin-right: 0">
+        <form action="/criarplanilha/" method="post">
+            {% csrf_token %}
+            <div class="header">
+                <h1>Dscon - Aplicativo de Lançamento de Horas</h1>
+                <p class="description">
+                    A planilha para lançamento de horas que esta aplicação utiliza, não existe ainda no seu Google Docs (Planilhas/Spreadsheets),</br>
+                    Será criada uma planilha com o nome {{ nome_planilha_horas }}. Posso criar para você ?
+                </p>
+            </div>
+
+            <div class="contentcenter">
+                <input name="escolhasim" type="submit" value="Sim" />
+                <input name="escolhanao" type="submit" value="Nao" />
+            </div>
+        </form>
+    </div>
+{% endblock %}
