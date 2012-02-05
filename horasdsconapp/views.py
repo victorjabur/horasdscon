@@ -1,5 +1,7 @@
 #! /usr/bin/python
 # -*- coding: iso-8859-1 -*-
+from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_protect
 
 from social_auth.views import complete as social_complete
 
@@ -13,6 +15,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
+from forms import CriarPlanilha
 from horasdsconapp.google.spreadsheet import GoogleSpreadsheet
 import settings
 
@@ -40,10 +43,13 @@ def existeplanilha(request):
                'last_login': request.session.get('social_auth_last_login_backend')}
         return render_to_response('done.html', ctx, RequestContext(request))
     else:
-        ctx = {'nome_planilha_horas': settings.NOME_PLANILHA_HORAS,}
+        form_criarplanilha = CriarPlanilha()
+        ctx = {'nome_planilha_horas': settings.NOME_PLANILHA_HORAS,
+               'form': form_criarplanilha,}
         return render_to_response('criarplanilha.html', ctx, context_instance=RequestContext(request))
 
 @login_required
+@csrf_protect
 def criarplanilha(request):
     if 'escolhasim' in request.POST:
         print '1'
@@ -59,9 +65,9 @@ def complete(request, backend):
     error = request.GET.get('error')
     if error != None and len(error) > 0:
         if error == 'access_denied':
-            error_message = 'Tudo bem se voce não quer autorizar o acesso às suas planilhas. Se mudar de idéia estou te esperando.'
+            error_message = 'Tudo bem se voce nï¿½o quer autorizar o acesso ï¿½s suas planilhas. Se mudar de idï¿½ia estou te esperando.'
         else:
-            error_message = 'Um erro de autenticação ocorreu com o Google Docs: ' + error
+            error_message = 'Um erro de autenticaï¿½ï¿½o ocorreu com o Google Docs: ' + error
         return custom_error(request, error_message)
     return social_complete(request, backend)
 
