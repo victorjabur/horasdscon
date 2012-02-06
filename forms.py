@@ -11,5 +11,9 @@ class CriarPlanilha(forms.Form):
         pmo = Pmo()
         user = self.cleaned_data.get('usuario_pmo')
         password = self.cleaned_data.get('senha_pmo')
-        #pmo.login(user, password)
-        raise forms.ValidationError("Not enough words!")
+        try:
+            cookies = pmo.login(user, password)
+
+        except Exception, err:
+            raise forms.ValidationError(err.message)
+        return self.cleaned_data

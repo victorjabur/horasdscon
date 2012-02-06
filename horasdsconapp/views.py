@@ -1,8 +1,8 @@
 #! /usr/bin/python
 # -*- coding: iso-8859-1 -*-
-from django.core.context_processors import csrf
-from django.forms.fields import Field
 from django.views.decorators.csrf import csrf_protect
+
+from django import template
 
 from social_auth.views import complete as social_complete
 
@@ -18,7 +18,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from forms import CriarPlanilha
 from horasdsconapp.google.spreadsheet import GoogleSpreadsheet
+from horasdsconapp.pmo.pmo import Pmo
 import settings
+
+register = template.Library()
 
 def handle_error500(request, template_name='error/500.html'):
     return render_to_response(template_name, context_instance=RequestContext(request))
@@ -26,7 +29,6 @@ def handle_error500(request, template_name='error/500.html'):
 
 def handle_error404(request, template_name='error/404.html'):
     return render_to_response(template_name, context_instance=RequestContext(request))
-
 
 def home(request):
     """Home view, displays login mechanism"""
@@ -55,9 +57,11 @@ def criarplanilha(request):
     if request.method == 'POST':
         form = CriarPlanilha(request.POST)
         if form.is_valid():
-            pass
+            gsp = GoogleSpreadsheet(request)
+            gsp.criar_planilha()
         else:
-            ctx = {'form': form,}
+            ctx = {'form': form,
+            }
             return render_to_response('criarplanilha.html', ctx, context_instance=RequestContext(request))
 
 def error(request):
