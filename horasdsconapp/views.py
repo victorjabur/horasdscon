@@ -1,6 +1,7 @@
 #! /usr/bin/python
 # -*- coding: iso-8859-1 -*-
 from django.core.context_processors import csrf
+from django.forms.fields import Field
 from django.views.decorators.csrf import csrf_protect
 
 from social_auth.views import complete as social_complete
@@ -51,10 +52,13 @@ def existeplanilha(request):
 @login_required
 @csrf_protect
 def criarplanilha(request):
-    if 'escolhasim' in request.POST:
-        print '1'
-    else:
-        print '2'
+    if request.method == 'POST':
+        form = CriarPlanilha(request.POST)
+        if form.is_valid():
+            pass
+        else:
+            ctx = {'form': form,}
+            return render_to_response('criarplanilha.html', ctx, context_instance=RequestContext(request))
 
 def error(request):
     """Error view"""
