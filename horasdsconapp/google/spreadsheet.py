@@ -1,4 +1,5 @@
 import gdata.spreadsheet.service
+from horasdsconapp.pmo.pmo import Pmo
 import settings
 from settings import util
 import gdata.service
@@ -22,8 +23,11 @@ class GoogleSpreadsheet:
             user_agent='horasdscon',
             access_token=socialuser.extra_data['access_token'],
             refresh_token=socialuser.extra_data['refresh_token'])
-        self.gd_client = gdata.spreadsheets.client.SpreadsheetsClient()
-        self.token.authorize(self.gd_client)
+        self.clientSpr = gdata.spreadsheets.client.SpreadsheetsClient()
+        self.token.authorize(self.clientSpr)
+        self.clientDocs = gdata.docs.client.DocsClient(source='horasdscon_app')
+        self.clientDocs.http_client.debug = False
+        self.token.authorize(self.clientDocs)
 
     def ExtractKey(self, entry):
         return entry.id.text.split('/')[-1]
@@ -36,17 +40,24 @@ class GoogleSpreadsheet:
             raise Error('More than one %s named %s', kind, name)
         return self.ExtractKey(entry[0])
 
+    def FindKeyOfSpreadsheet(self, name):
+        spreadsheets = self.clientSpr.GetSpreadsheets()
+        return self.FindKeyOfEntryNamed(spreadsheets, name)
+
     def planilha_existe(self):
-        feed = self.gd_client.GetSpreadsheets()
         try:
-            self.FindKeyOfEntryNamed(feed, settings.NOME_PLANILHA_HORAS)
+            self.FindKeyOfSpreadsheet(settings.NOME_PLANILHA_HORAS)
             return True
         except:
             return False
 
-    def criar_planilha(self):
-        client = gdata.docs.client.DocsClient(source='horasdscon_app')
-        client.http_client.debug = True
-        self.token.authorize(client)
+    def criar_planilha(self, usuario_pmo, senha_pmo):
+        pmo = Pmo()
+        loginInfo = pmo.login(usuario_pmo, senha_pmo)
+        colaborador = pmo.extrairColaboradorFromPagina(loginInfo.pagina)
         resource = gdata.docs.data.Resource('spreadsheet', settings.NOME_PLANILHA_HORAS)
-        planilha = client.CreateResource(resource)
+        planilha = self.clientDocs.CreateResource(resource)
+        print usuario_pmo
+        print senha_pmo
+        print colaborador.id
+        print colaborador.nome

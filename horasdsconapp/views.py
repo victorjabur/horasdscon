@@ -57,8 +57,10 @@ def criarplanilha(request):
     if request.method == 'POST':
         form = CriarPlanilha(request.POST)
         if form.is_valid():
+            usuario_pmo = form.cleaned_data.get('usuario_pmo')
+            senha_pmo = form.cleaned_data.get('senha_pmo')
             gsp = GoogleSpreadsheet(request)
-            gsp.criar_planilha()
+            gsp.criar_planilha(usuario_pmo, senha_pmo)
         else:
             ctx = {'form': form,
             }

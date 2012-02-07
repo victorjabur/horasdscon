@@ -12,8 +12,7 @@ class CriarPlanilha(forms.Form):
         user = self.cleaned_data.get('usuario_pmo')
         password = self.cleaned_data.get('senha_pmo')
         try:
-            cookies = pmo.login(user, password)
-
+            pmo.login(user, password)
         except Exception, err:
             raise forms.ValidationError(err.message)
         return self.cleaned_data
