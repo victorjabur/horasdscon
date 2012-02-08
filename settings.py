@@ -166,7 +166,7 @@ LOGGING = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.google.GoogleOAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
     )
 
@@ -181,7 +181,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 GOOGLE_OAUTH_EXTRA_SCOPE = ['https://spreadsheets.google.com/feeds/', 'https://docs.google.com/feeds/']
 
-SOCIAL_AUTH_ENABLED_BACKENDS = ('google-oauth2',)
+SOCIAL_AUTH_ENABLED_BACKENDS = ('google-oauth',)
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/'

@@ -75,9 +75,9 @@ def complete(request, backend):
     error = request.GET.get('error')
     if error != None and len(error) > 0:
         if error == 'access_denied':
-            error_message = 'Tudo bem se voce nï¿½o quer autorizar o acesso ï¿½s suas planilhas. Se mudar de idï¿½ia estou te esperando.'
+            error_message = 'Tudo bem se voce não quer autorizar o acesso às suas planilhas. Se mudar de idéia estou te esperando.'
         else:
-            error_message = 'Um erro de autenticaï¿½ï¿½o ocorreu com o Google Docs: ' + error
+            error_message = 'Um erro de autenticação ocorreu com o Google Docs: ' + error
         return custom_error(request, error_message)
     return social_complete(request, backend)
 

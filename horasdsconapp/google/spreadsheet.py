@@ -9,8 +9,6 @@ import gdata.spreadsheets.client
 import gdata.gauth
 import gdata.docs.data
 import gdata.docs.client
-import gdata.client as gclient
-from gdata.spreadsheet.text_db import DatabaseClient
 
 
 class GoogleSpreadsheet:
@@ -28,6 +26,8 @@ class GoogleSpreadsheet:
         self.clientDocs = gdata.docs.client.DocsClient(source='horasdscon_app')
         self.clientDocs.http_client.debug = False
         self.token.authorize(self.clientDocs)
+        self.keyPlanilha = ''
+        self.keyWorksheet = ''
 
     def ExtractKey(self, entry):
         return entry.id.text.split('/')[-1]
@@ -35,14 +35,18 @@ class GoogleSpreadsheet:
     def FindKeyOfEntryNamed(self, feed, name, kind='spreadsheet'):
         entry = [e for e in feed.entry if e.title.text == name]
         if not entry:
-            raise Error('Can\'t find %s named %s', kind, name)
+            raise gdata.Error('Can\'t find %s named %s', kind, name)
         if len(entry) > 1:
-            raise Error('More than one %s named %s', kind, name)
+            raise gdata.Error('More than one %s named %s', kind, name)
         return self.ExtractKey(entry[0])
 
     def FindKeyOfSpreadsheet(self, name):
         spreadsheets = self.clientSpr.GetSpreadsheets()
         return self.FindKeyOfEntryNamed(spreadsheets, name)
+
+    def FindKeyOfWorksheet(self, name):
+        worksheets = self.clientSpr.GetWorksheets(self.keyPlanilha)
+        return self.FindKeyOfEntryNamed(worksheets, name, 'worksheet')
 
     def planilha_existe(self):
         try:
@@ -52,12 +56,26 @@ class GoogleSpreadsheet:
             return False
 
     def criar_planilha(self, usuario_pmo, senha_pmo):
-        pmo = Pmo()
-        loginInfo = pmo.login(usuario_pmo, senha_pmo)
-        colaborador = pmo.extrairColaboradorFromPagina(loginInfo.pagina)
-        resource = gdata.docs.data.Resource('spreadsheet', settings.NOME_PLANILHA_HORAS)
-        planilha = self.clientDocs.CreateResource(resource)
+#        pmo = Pmo()
+#        loginInfo = pmo.login(usuario_pmo, senha_pmo)
+#        colaborador = pmo.extrairColaboradorFromPagina(loginInfo.pagina)
+#        resource = gdata.docs.data.Resource('spreadsheet', settings.NOME_PLANILHA_HORAS)
+#        media = gdata.data.MediaSource()
+#        media.SetFileHandle(settings.PATH_PLANILHA_HORAS_TEMPLATE, 'application/vnd.ms-excel')
+#        planilha = self.clientDocs.CreateResource(resource, media=media)
+        self.keyPlanilha = self.FindKeyOfSpreadsheet(settings.NOME_PLANILHA_HORAS)
+        self.keyWorksheet = self.FindKeyOfWorksheet('config')
+#        headers = {'A':'usuario_pmo', 'B':'senha_pmo', 'C':'id_colaborador', 'D':'nome_colaborador'}
+#        self.clientSpr.add_table(self.keyPlanilha, 'configuracoes', 'config', 'config', 1, 0, 2, 'overwrite', headers)
+#        dados = {'usuario_pmo':usuario_pmo, 'senha_pmo':senha_pmo, 'id_colaborador':colaborador.id, 'nome_colaborador':colaborador.nome}
+#        self.clientSpr.add_record(self.keyPlanilha, '0', dados)
+#        self.clientSpr.add_record(self.keyPlanilha, '0', dados)
+#        records = self.clientSpr.get_records(self.keyPlanilha, '0')
+        cells = self.clientSpr.get_cells(self.keyPlanilha, self.keyWorksheet)
+        self.clientSpr
+
+
         print usuario_pmo
-        print senha_pmo
-        print colaborador.id
-        print colaborador.nome
+        #print senha_pmo
+        #print colaborador.id
+        #print colaborador.nome
