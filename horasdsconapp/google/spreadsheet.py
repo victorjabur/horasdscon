@@ -1,6 +1,7 @@
 import gdata.spreadsheet.service
 from horasdsconapp.pmo.pmo import Pmo
-import settings
+import settings, re, sys, urllib
+from unicodedata import normalize
 from settings import util
 import gdata.service
 import gdata.spreadsheet
@@ -9,25 +10,39 @@ import gdata.spreadsheets.client
 import gdata.gauth
 import gdata.docs.data
 import gdata.docs.client
-
+from gdata.spreadsheet.text_db import DatabaseClient
 
 class GoogleSpreadsheet:
 
     def __init__(self, request):
         socialuser = UserSocialAuth.objects.get(user=request.user)
-        self.token = gdata.gauth.OAuth2Token(client_id=util.getEntry('google_oauth2','CLIENT_ID'),
-            client_secret=util.getEntry('google_oauth2','CLIENT_SECRET'),
-            scope=settings.GOOGLE_OAUTH_EXTRA_SCOPE,
-            user_agent='horasdscon',
-            access_token=socialuser.extra_data['access_token'],
-            refresh_token=socialuser.extra_data['refresh_token'])
-        self.clientSpr = gdata.spreadsheets.client.SpreadsheetsClient()
-        self.token.authorize(self.clientSpr)
+        access_token=socialuser.extra_data['access_token']
+        self.token = self.GetOAuthToken(access_token)
+        self.clientSpr = gdata.spreadsheet.service.SpreadsheetsService()
+        self.clientDB = DatabaseClient()
         self.clientDocs = gdata.docs.client.DocsClient(source='horasdscon_app')
         self.clientDocs.http_client.debug = False
-        self.token.authorize(self.clientDocs)
-        self.keyPlanilha = ''
-        self.keyWorksheet = ''
+        self.clientSpr.auth_token = self.token
+        self.clientDocs.auth_token = self.token
+        oauth_input_params = gdata.auth.OAuthInputParams(gdata.auth.OAuthSignatureMethod.HMAC_SHA1, settings.util.getEntry('google_oauth', 'CONSUMER_KEY'), consumer_secret=settings.util.getEntry('google_oauth', 'CONSUMER_SECRET'))
+        oauth_token = gdata.auth.OAuthToken(key=self.token.token, secret=self.token.token_secret, scopes=settings.GOOGLE_OAUTH_EXTRA_SCOPE, oauth_input_params=oauth_input_params)
+        self.clientDB._GetSpreadsheetsClient().SetOAuthInputParameters(gdata.auth.OAuthSignatureMethod.HMAC_SHA1, settings.util.getEntry('google_oauth', 'CONSUMER_KEY'), consumer_secret=settings.util.getEntry('google_oauth', 'CONSUMER_SECRET'))
+        self.clientDB._GetDocsClient().SetOAuthInputParameters(gdata.auth.OAuthSignatureMethod.HMAC_SHA1, settings.util.getEntry('google_oauth', 'CONSUMER_KEY'), consumer_secret=settings.util.getEntry('google_oauth', 'CONSUMER_SECRET'))
+        self.clientDB._GetDocsClient().SetOAuthToken(oauth_token)
+
+    def GetOAuthToken(self, access_token):
+        oauth_token_secret = re.search(r'oauth_token_secret=(.*)&oauth_token=(.*)', access_token).group(1)
+        oauth_token = re.search(r'oauth_token_secret=(.*)&oauth_token=(.*)', access_token).group(2)
+        oauth_token_secret = urllib.unquote(oauth_token_secret)
+        oauth_token = urllib.unquote(oauth_token)
+        return gdata.gauth.OAuthHmacToken(
+            settings.util.getEntry('google_oauth', 'CONSUMER_KEY'),
+            settings.util.getEntry('google_oauth', 'CONSUMER_SECRET'),
+            oauth_token,
+            oauth_token_secret,
+            gdata.gauth.ACCESS_TOKEN,
+            next=None,
+            verifier=None)
 
     def ExtractKey(self, entry):
         return entry.id.text.split('/')[-1]
@@ -44,8 +59,8 @@ class GoogleSpreadsheet:
         spreadsheets = self.clientSpr.GetSpreadsheets()
         return self.FindKeyOfEntryNamed(spreadsheets, name)
 
-    def FindKeyOfWorksheet(self, name):
-        worksheets = self.clientSpr.GetWorksheets(self.keyPlanilha)
+    def FindKeyOfWorksheet(self, key, name):
+        worksheets = self.clientSpr.GetWorksheets(key)
         return self.FindKeyOfEntryNamed(worksheets, name, 'worksheet')
 
     def planilha_existe(self):
@@ -56,26 +71,12 @@ class GoogleSpreadsheet:
             return False
 
     def criar_planilha(self, usuario_pmo, senha_pmo):
-#        pmo = Pmo()
-#        loginInfo = pmo.login(usuario_pmo, senha_pmo)
-#        colaborador = pmo.extrairColaboradorFromPagina(loginInfo.pagina)
-#        resource = gdata.docs.data.Resource('spreadsheet', settings.NOME_PLANILHA_HORAS)
-#        media = gdata.data.MediaSource()
-#        media.SetFileHandle(settings.PATH_PLANILHA_HORAS_TEMPLATE, 'application/vnd.ms-excel')
-#        planilha = self.clientDocs.CreateResource(resource, media=media)
-        self.keyPlanilha = self.FindKeyOfSpreadsheet(settings.NOME_PLANILHA_HORAS)
-        self.keyWorksheet = self.FindKeyOfWorksheet('config')
-#        headers = {'A':'usuario_pmo', 'B':'senha_pmo', 'C':'id_colaborador', 'D':'nome_colaborador'}
-#        self.clientSpr.add_table(self.keyPlanilha, 'configuracoes', 'config', 'config', 1, 0, 2, 'overwrite', headers)
-#        dados = {'usuario_pmo':usuario_pmo, 'senha_pmo':senha_pmo, 'id_colaborador':colaborador.id, 'nome_colaborador':colaborador.nome}
-#        self.clientSpr.add_record(self.keyPlanilha, '0', dados)
-#        self.clientSpr.add_record(self.keyPlanilha, '0', dados)
-#        records = self.clientSpr.get_records(self.keyPlanilha, '0')
-        cells = self.clientSpr.get_cells(self.keyPlanilha, self.keyWorksheet)
-        self.clientSpr
-
-
-        print usuario_pmo
-        #print senha_pmo
-        #print colaborador.id
-        #print colaborador.nome
+        pmo = Pmo()
+        loginInfo = pmo.login(usuario_pmo, senha_pmo)
+        colaborador = pmo.extrairColaboradorFromPagina(loginInfo.pagina)
+        db = self.clientDB.CreateDatabase(settings.NOME_PLANILHA_HORAS)
+        tabela = db.CreateTable('config', ['usuariopmo','senhapmo','idcolaborador','nomecolaborador'])
+        dados = {'usuariopmo':usuario_pmo, 'senhapmo':senha_pmo, 'idcolaborador':colaborador.id, 'nomecolaborador':colaborador.nome}
+        row = tabela.AddRecord(dados)
+        tabela = db.GetTables(name='Sheet 1')[0]
+        tabela.Delete()
