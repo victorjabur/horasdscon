@@ -2,7 +2,7 @@
 # -*- coding: iso-8859-1 -*-
 # Django settings for horasdscon project.
 
-import os
+import os, locale
 
 from ConfigParser import RawConfigParser
 from horasdsconapp import Util
@@ -56,6 +56,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'pt-BR'
+locale.setlocale(locale.LC_ALL, 'pt_BR.iso-8859-1')
 
 SITE_ID = 1
 
@@ -185,7 +186,7 @@ SOCIAL_AUTH_ENABLED_BACKENDS = ('google-oauth',)
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/'
-LOGIN_ERROR_URL    = '/login-error/'
+LOGIN_ERROR_URL = '/login-error/'
 
 try:
     from local_settings import *
