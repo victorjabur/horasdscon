@@ -1,5 +1,5 @@
 #! /usr/bin/python
-# -*- coding: iso-8859-1 -*-
+# coding: utf-8
 from django.views.decorators.csrf import csrf_protect
 
 from django import template
@@ -8,6 +8,7 @@ from social_auth.views import complete as social_complete
 
 from django.contrib.auth import logout as auth_logout
 from django.contrib.messages.api import get_messages
+from django.http import HttpResponseRedirect
 
 from social_auth import __version__ as version
 
@@ -19,6 +20,7 @@ from django.shortcuts import render_to_response
 from forms import CriarPlanilha
 from horasdsconapp.google.spreadsheet import GoogleSpreadsheet
 from horasdsconapp.pmo.pmo import Pmo
+from horasdsconapp.user.user import User
 import settings
 
 register = template.Library()
@@ -44,7 +46,7 @@ def existeplanilha(request):
     if googleSpr.planilha_existe():
         ctx = {'version': version,
                'last_login': request.session.get('social_auth_last_login_backend')}
-        return render_to_response('done.html', ctx, RequestContext(request))
+        return HttpResponseRedirect('/projetos')
     else:
         form_criarplanilha = CriarPlanilha()
         ctx = {'nome_planilha_horas': settings.NOME_PLANILHA_HORAS,
@@ -60,25 +62,31 @@ def criarplanilha(request):
             usuario_pmo = form.cleaned_data.get('usuario_pmo')
             senha_pmo = form.cleaned_data.get('senha_pmo')
             gsp = GoogleSpreadsheet(request)
-            gsp.criar_planilha(usuario_pmo, senha_pmo)
+            gsp.criar_planilha(request, usuario_pmo, senha_pmo)
+            return HttpResponseRedirect('/projetos')
         else:
             ctx = {'form': form,
             }
             return render_to_response('criarplanilha.html', ctx, context_instance=RequestContext(request))
+
+@login_required
+@csrf_protect
+def projetos(request):
+    pmo = Pmo()
+    user = User()
+    user.autentica_usuario(request)
+    pmo.obter_projetos(request)
 
 def error(request):
     """Error view"""
     messages = get_messages(request)
     return render_to_response('error.html', {'version': version, 'messages': messages}, RequestContext(request))
 
+def login_error(request):
+    error_message = 'Tudo bem se voce nÃ£o quer autorizar o acesso Ã s suas planilhas. Se mudar de idÃ©ia estou te esperando.'
+    return custom_error(request, error_message)
+
 def complete(request, backend):
-    error = request.GET.get('error')
-    if error != None and len(error) > 0:
-        if error == 'access_denied':
-            error_message = 'Tudo bem se voce não quer autorizar o acesso às suas planilhas. Se mudar de idéia estou te esperando.'
-        else:
-            error_message = 'Um erro de autenticação ocorreu com o Google Docs: ' + error
-        return custom_error(request, error_message)
     return social_complete(request, backend)
 
 def custom_error(request, error_message):

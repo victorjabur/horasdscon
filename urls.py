@@ -3,7 +3,7 @@ from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-from horasdsconapp.views import home, existeplanilha, logout, error, custom_error, complete, criarplanilha
+from horasdsconapp.views import home, existeplanilha, logout, error, login_error, custom_error, complete, criarplanilha, projetos
 admin.autodiscover()
 
 handler404 = 'horasdsconapp.views.handle_error404'
@@ -13,7 +13,9 @@ urlpatterns = patterns('',
     url(r'^$', home, name='home'),
     url(r'^existeplanilha/$', existeplanilha, name='existeplanilha'),
     url(r'^criarplanilha/$', criarplanilha, name='criarplanilha'),
+    url(r'^projetos/$', projetos, name='projetos'),
     url(r'^error/$', error, name='error'),
+    url(r'^login/error/$', login_error, name='error'),
     url(r'^custom_error/$', custom_error, name='custom_error'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^admin/', include(admin.site.urls)),

@@ -1,3 +1,6 @@
+#! /usr/bin/python
+# coding: utf-8
+
 import gdata.spreadsheet.service
 from horasdsconapp.pmo.pmo import Pmo
 import settings, urllib, re, locale, datetime, calendar
@@ -14,7 +17,6 @@ from gdata.spreadsheet.text_db import DatabaseClient
 class GoogleSpreadsheet:
 
     def __init__(self, request):
-        pass
         socialuser = UserSocialAuth.objects.get(user=request.user)
         access_token=socialuser.extra_data['access_token']
         self.consumer_key = util.getEntry('google_oauth', 'CONSUMER_KEY')
@@ -47,26 +49,32 @@ class GoogleSpreadsheet:
     def planilha_existe(self):
         return len(self.clientDB.GetDatabases(name=settings.NOME_PLANILHA_HORAS)) > 0
 
-    def criar_planilha(self, usuario_pmo, senha_pmo):
+    def criar_planilha(self, request, usuario_pmo, senha_pmo):
         pmo = Pmo()
         loginInfo = pmo.login(usuario_pmo, senha_pmo)
         colaborador = pmo.extrairColaboradorFromPagina(loginInfo.pagina)
         db = self.clientDB.CreateDatabase(settings.NOME_PLANILHA_HORAS)
+        self.criarWorksheetMesCorrente(db)
+        colunas = ['company','projectid','projectcode','projectname','projecttype','taskid','taskname']
+        tabela = db.CreateTable('meusprojetos', colunas)
         colunas = ['usuariopmo','senhapmo','idcolaborador','nomecolaborador']
         tabela = db.CreateTable('config', colunas)
         dados = {colunas[0]:usuario_pmo, colunas[1]:senha_pmo, colunas[2]:colaborador.id, colunas[3]:colaborador.nome}
         row = tabela.AddRecord(dados)
-        self.criarWorksheetMesCorrente()
         tabela = db.GetTables(name='Sheet 1')[0]
         tabela.Delete()
+        request.session['cookie_pmo'] = loginInfo.cookies
+        request.session['usuario_pmo'] = usuario_pmo
+        request.session['senha_pmo'] = senha_pmo
 
-    def criarWorksheetMesCorrente(self):
+    def criarWorksheetMesCorrente(self, db=None):
         now = datetime.datetime.now()
         mes_corrente = self.GetMesCorrente()
         nome_mes_corrente =  now.strftime('%B').capitalize()
         ano_corrente = str(now.year)
         colunas = ['data', 'diasemana', 'horaentrada', 'horasaida', 'taskid', 'descricaotask', 'idregistropmo']
-        db = self.clientDB.GetDatabases(name=settings.NOME_PLANILHA_HORAS)[0]
+        if db == None:
+            db = self.clientDB.GetDatabases(name=settings.NOME_PLANILHA_HORAS)[0]
         tabela = db.CreateTable(nome_mes_corrente + ano_corrente, colunas)
         for data in mes_corrente:
             datastr = data.strftime('%Y-%m-%d')
