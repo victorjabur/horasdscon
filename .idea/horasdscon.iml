@@ -16,6 +16,7 @@
     <orderEntry type="module" module-name="horasdscon" />
     <orderEntry type="module" module-name="deploy" />
     <orderEntry type="module" module-name="Utilitarios" />
+    <orderEntry type="module" module-name="jquerydjango" />
   </component>
   <component name="TemplatesService">
     <option name="templateLanguage" value="Django" />

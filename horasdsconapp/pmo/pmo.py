@@ -12,7 +12,7 @@ class Pmo:
             senha_pmo = request.session['senha_pmo']
         post_login = {'login':'login', 'username':usuario_pmo, 'password':senha_pmo, 'login.x':'13', 'login.y':'12'}
         r = requests.post('http://www.dscon.com.br/pmo/index.php', post_login)
-        if type == 'complete:':
+        if type == 'complete':
             pagina = requests.get('http://dscon.com.br/pmo/index.php?m=projects&tab=1', cookies=r.cookies)
             if pagina.content.find('Usu&aacute;rio e/ou senha inv&aacute;lidos.') != -1:
                 raise RuntimeError('Usuario ou Senha Invalidos')
@@ -51,7 +51,7 @@ class Pmo:
             empresa = re.search(r"<td width..30..>\n\t(.*)\n</td>", projeto).group(1)
             projectid = re.search(r"project_id.(\d*)..onmou", projeto).group(1)
             projectname = re.search(r"eout=.nd.....(.*)</a>", projeto).group(1)
-            print empresa, projectid, " ", projectname
+            #print empresa, projectid, " ", projectname
 
     def retirar_acento(self, str):
         return normalize('NFKD', str.decode('utf-8')).encode('ASCII','ignore')

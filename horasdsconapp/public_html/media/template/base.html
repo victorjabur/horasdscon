@@ -5,6 +5,9 @@
     <meta name="description" content="Dscon - Aplicação de Lançamento de Horas" />
     <meta name="keywords" content="horas dscon lançamento" />
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui-1.8.18.custom.css"/>
+    <script type="text/javascript" src="/media/static_dev/js/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="/media/static_dev/js/jquery-ui-1.8.18.custom.min.js"></script>
     <style type="text/css">
       body {background-color: #eee; padding: 3px 20px; font-family: sans-serif; color: #333;}
       h1, h2, h3 {margin: 0; padding: 0;}
@@ -48,10 +51,11 @@
       }
 
     </style>
+    {% block head %}{% endblock %}
   </head>
   <body>
     <div class="imgheader">
-        <a id="logods" href="http://www.dscon.com.br" target="_blank"><img style="width: 160px; height: 75px" src="/media/horasdscon/static/images/logods.png"/></a>
+        <a id="logods" href="http://www.dscon.com.br" target="_blank"><img style="width: 160px; height: 75px" src="images/logods.png"/></a>
         <a id="logopmo" href="http://www.dscon.com.br/pmo" target="_blank" style="position: absolute; left: 40%"><img style="width: 160px; height: 75px" src="/media/horasdscon/static/images/logopmo.png"/></a>
         <a id="logopartner" href="http://www.dscon.com.br" target="_blank" style="position: absolute; padding: 20px; right: 0"><img src="/media/horasdscon/static/images/logopartner.png"/></a>
     </div>

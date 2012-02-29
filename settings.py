@@ -6,6 +6,7 @@ import os, locale
 
 from ConfigParser import RawConfigParser
 from horasdsconapp import Util
+from os.path import abspath, dirname, basename, join
 
 try:
     import social_auth
@@ -26,6 +27,8 @@ config.read(PYTHON_CONF)
 
 DEBUG = config.getboolean('debug','DEBUG')
 TEMPLATE_DEBUG = DEBUG
+
+ROOT_PATH = abspath(dirname(__file__))
 
 ADMINS = (
     ('Victor Jabur', 'victorjabur@gmail.com'),
@@ -68,36 +71,38 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+SITE_ROOT = util.getEntry('django_settings', 'SITE_ROOT')
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'media/uploads')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/uploads/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(SITE_ROOT, 'media/static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = config.get('django_settings', 'STATIC_URL')
+STATIC_URL = '/media/static_dev/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = config.get('django_settings', 'ADMIN_MEDIA_PREFIX')
+ADMIN_MEDIA_PREFIX = '/media/static_dev/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    util.getEntry('django_settings', 'STATIC_DIR'),
+    os.path.join(SITE_ROOT, 'media/static_dev'),
 )
 
 # List of finder classes that know how to find static files in
@@ -128,7 +133,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
-TEMPLATE_DIRS = (util.getEntry('django_settings', 'TEMPLATE_DIRS'),)
+TEMPLATE_DIRS = (os.path.join(SITE_ROOT, 'media/template'),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -177,6 +182,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.static',
     'social_auth.context_processors.social_auth_by_type_backends',
     )
 

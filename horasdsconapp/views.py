@@ -71,11 +71,18 @@ def criarplanilha(request):
 
 @login_required
 @csrf_protect
+def criarprojetos(request):
+    pass
+
+@login_required
+@csrf_protect
 def projetos(request):
-    pmo = Pmo()
-    user = User()
-    user.autentica_usuario(request)
-    pmo.obter_projetos(request)
+    #pmo = Pmo()
+    #user = User()
+    #user.autentica_usuario(request)
+    #pmo.obter_projetos(request)
+    ctx = {}
+    return render_to_response('projetos.html', ctx, context_instance=RequestContext(request))
 
 def error(request):
     """Error view"""
@@ -83,7 +90,7 @@ def error(request):
     return render_to_response('error.html', {'version': version, 'messages': messages}, RequestContext(request))
 
 def login_error(request):
-    error_message = 'Tudo bem se voce não quer autorizar o acesso às suas planilhas. Se mudar de idéia estou te esperando.'
+    error_message = 'Tudo bem se voce nÃ£o quer autorizar o acesso Ã s suas planilhas. Se mudar de idÃ©ia estou te esperando.'
     return custom_error(request, error_message)
 
 def complete(request, backend):
