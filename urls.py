@@ -4,8 +4,11 @@ from django.conf.urls.defaults import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from dajaxice.core import dajaxice_autodiscover
 from horasdsconapp.views import home, existeplanilha, logout, error, login_error, custom_error, complete, criarplanilha, projetos
 import settings
+
+dajaxice_autodiscover()
 
 admin.autodiscover()
 
@@ -16,6 +19,7 @@ if settings.util.getEntry('geral', 'ISDEV') == 'TRUE':
     urlpatterns = staticfiles_urlpatterns()
 
 urlpatterns = patterns('',
+    url(r'^%s/' % settings.DAJAXICE_MEDIA_PREFIX, include('dajaxice.urls')),
     url(r'^$', home, name='home'),
     url(r'^existeplanilha/$', existeplanilha, name='existeplanilha'),
     url(r'^criarplanilha/$', criarplanilha, name='criarplanilha'),

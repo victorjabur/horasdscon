@@ -77,11 +77,17 @@ def criarprojetos(request):
 @login_required
 @csrf_protect
 def projetos(request):
-    #pmo = Pmo()
-    #user = User()
-    #user.autentica_usuario(request)
-    #pmo.obter_projetos(request)
-    ctx = {}
+    lista_empresas = lista_projetos = []
+    if 'lista_empresas' not in request.session:
+        pmo = Pmo()
+        user = User()
+        user.autentica_usuario(request)
+        pmo.obter_projetos(request)
+        lista_empresas = request.session['lista_empresas'] = pmo.lista_empresas
+        lista_projetos = request.session['lista_projetos'] = pmo.lista_projetos
+    lista_empresas = request.session['lista_empresas']
+    lista_projetos = request.session['lista_projetos']
+    ctx = {'empresas' : lista_empresas, 'projetos' : lista_projetos}
     return render_to_response('projetos.html', ctx, context_instance=RequestContext(request))
 
 def error(request):

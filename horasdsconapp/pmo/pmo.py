@@ -49,9 +49,10 @@ class Pmo:
         projetos = re.findall(r"<td width=.30%.>\n.*\n</td>.*\n.*\n.*", pagina)
         for projeto in projetos:
             empresa = re.search(r"<td width..30..>\n\t(.*)\n</td>", projeto).group(1)
-            projectid = re.search(r"project_id.(\d*)..onmou", projeto).group(1)
-            projectname = re.search(r"eout=.nd.....(.*)</a>", projeto).group(1)
-            #print empresa, projectid, " ", projectname
+            id_projeto = re.search(r"project_id.(\d*)..onmou", projeto).group(1)
+            nome_projeto = re.search(r"eout=.nd.....(.*)</a>", projeto).group(1)
+            lista_projetos.append(Projeto(company=empresa, projectid=id_projeto, projectname=nome_projeto))
+        return lista_projetos
 
     def retirar_acento(self, str):
         return normalize('NFKD', str.decode('utf-8')).encode('ASCII','ignore')
@@ -61,9 +62,8 @@ class Pmo:
         post_projetos = {'department':'company_0'}
         r = requests.post('http://dscon.com.br/pmo/index.php?m=projects', post_projetos, cookies=cookie)
         pagina = r.content
-        lista_empresas = self.extrairEmpresasFromPagina(pagina)
-        lista_projetos = self.extrairProjetosFromPagina(pagina)
-
+        self.lista_empresas = self.extrairEmpresasFromPagina(pagina)
+        self.lista_projetos = self.extrairProjetosFromPagina(pagina)
 
 class LoginInfo:
     def __init__(self, cookies, pagina):
@@ -76,7 +76,7 @@ class Colaborador:
         self.nome = nome
 
 class Projeto:
-    def __init__(self, company, projectid, projectcode, projectname, projecttype, taskid, taskname):
+    def __init__(self, company='', projectid='', projectcode='', projectname='', projecttype='', taskid='', taskname=''):
         self.company = company
         self.projectid = projectid
         self.projectcode = projectcode
