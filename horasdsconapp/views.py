@@ -42,6 +42,7 @@ def home(request):
 
 @login_required
 def existeplanilha(request):
+    request.session.set_expiry(60*60)
     googleSpr = GoogleSpreadsheet(request)
     if googleSpr.planilha_existe():
         ctx = {'version': version,

@@ -34,11 +34,14 @@
         tr.even {background-color: #ddd;}
         .heading {position: relative; float: left; margin-top: 1.3em;}
         .imgheader {position: relative; width: 100%}
+        .toolbarlogin {background-color: #e9967a; padding: 3px}
+        #infologin {color: #ffffcc; float: left;}
+        #lastlogin {color: #5b80b2; padding-left: 20%}
         .docs {float: left;}
         #content {padding: 0 20px;}
         .helptext {font-size: 0.9em; color: #aaa; margin: 0; padding: 0;}
         .description {font-size: 1.0em; color: #333;}
-        a.logout, span.disconnect a, .error {color: #c00;}
+        a.logout, span.disconnect a, .error {color: #c00; float: right;}
         .error {padding-left: 30px;}
         .header { clear: both; margin-left: 70px; margin-right: 20px}
         .contentcenter {clear: both; margin-left: auto; margin-right: auto; text-align: center;}
@@ -67,6 +70,12 @@
     <a id="logopmo" href="http://www.dscon.com.br/pmo" target="_blank" style="position: absolute; left: 40%"><img style="width: 160px; height: 75px" src="/media/static/images/logopmo.png"/></a>
     <a id="logopartner" href="http://www.dscon.com.br" target="_blank" style="position: absolute; padding: 20px; right: 0"><img src="/media/static/images/logopartner.png"/></a>
 </div>
+
+{% if user.id != None %}
+    <div class="toolbarlogin">
+        <span id="infologin">Olá, {{ user.email }}</span> <span id="lastlogin">Último Login: {{ user.last_login }}</span> <a rel="nofollow" class="logout" href="/logout/">Logout / Sair</a>
+    </div>
+{% endif %}
 
 <div class=heading>
     {% block heading %}{% endblock %}
