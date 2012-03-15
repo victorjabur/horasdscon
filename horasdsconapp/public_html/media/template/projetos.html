@@ -7,10 +7,53 @@
         .ui-button-icon-only .ui-button-text { padding: 0.35em; }
         .ui-autocomplete-input { margin: 0; padding: 0.48em 0 0.47em 0.45em; }
     </style>
+    <script type="text/javascript" charset="utf-8">
+
+        function callback_example1(data){
+            alert(data.message);
+        }
+
+        function callback_example2(data){
+            for (var i=0; i < data.numbers.length; i++) {
+                alert(data.numbers[i]);
+            }
+        }
+
+        function callback_example3(data){
+            alert(data.result);
+        }
+
+        function callback_example_error(data){
+            alert(data);
+        }
+
+        function callback_complex_example1(data){
+            alert(data.message);
+        }
+
+        function custom_error(){
+            alert('Custom error');
+        }
+
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        function atualizarcomboprojetos(data){
+            alert('oi')
+            $("#combo_projetos").autocomplete({ source: ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby"] });
+        }
+
+        function my_callback(data){
+            alert('Error ');
+        }
+    </script>
     <script>
         $(function() {
-            $( "#combo_empresas" ).combobox();
-            $( "#combo_projetos" ).combobox();
+            $("#combo_projetos" ).combobox();
+            $("#combo_empresas").combobox({
+                selected: function(event, ui) {
+                    Dajaxice.horasdsconapp.updatecomboprojetos(atualizarcomboprojetos, {'option':ui.item.value});
+                }
+            });
         });
     </script>
 
@@ -28,7 +71,7 @@
                     Escolha aqui os projetos nos quais você trabalha atualmente, pois facilitará o lançamento de horas para você.
                 </p>
 
-                <div id="empresas" class="ui-widget combo">
+                <div id="empresas" class="ui-widget">
                     <label>Escolha a empresa: </label>
                     <select id="combo_empresas">
                         {% for empresa in empresas %}
@@ -49,13 +92,16 @@
                 </br>
             </div>
 
+            <input type="button" name="rand" value="Get message from server!" id="rand" onclick="Dajaxice.horasdsconapp.example1(callback_example1);">
+
+            <!--
             <select name="combo1" id="combo1" onchange="Dajaxice.horasdsconapp.updatecombo(atualizarcombo,{'option':this.value})" size="1">
                 <option value="0">Select...</option>
                 <option value="0">Spain</option>
                 <option value="1">France</option>
                 <option value="2">United Kingdom</option>
             </select>
-            <select name="combo2" id="combo2" onchange="" size="1"></select>
+            <select name="combo2" id="combo2" onchange="" size="1"></select> -->
 
 
         </form>
