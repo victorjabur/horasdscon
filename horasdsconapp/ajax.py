@@ -1,19 +1,16 @@
-from dajax.core import Dajax
 from django.utils import simplejson
 from dajaxice.decorators import dajaxice_register
 
 @dajaxice_register
 def updatecomboprojetos(request, option):
-    #dajax = Dajax()
+    projetos = []
     option = str(option.encode('utf-8'))
     lista_projetos = request.session['lista_projetos']
-    out = ''
     for projeto in lista_projetos:
         if projeto.company == option:
-            out += "<option value='%s'>%s" % (projeto.projectname, projeto.projectname)
-    #dajax.assign('#combo2','innerHTML',out)
-    #return dajax.json()
-    return simplejson.dumps({'result':out})
+            projetos.append(Combo(projeto.projectid, projeto.projectname))
+    #return simplejson.dumps(projetos)
+    return '[{ text: "Item14566", value: "1" },{ text: "Item234355",value: "2" }]'
 
 @dajaxice_register
 def dajaxice_example(request):
@@ -37,3 +34,9 @@ def example3(request, data, name):
 @dajaxice_register
 def error_example(request):
     raise Exception("Some Exception")
+
+
+class Combo:
+    def __init__(self, text='', value=''):
+        self.text = text
+        self.value = value

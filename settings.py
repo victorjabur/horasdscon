@@ -188,6 +188,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social_auth.context_processors.social_auth_by_type_backends',
     )
 
+SESSION_SAVE_EVERY_REQUEST = True
+
 GOOGLE_OAUTH_EXTRA_SCOPE = ['https://spreadsheets.google.com/feeds/', 'https://docs.google.com/feeds/']
 
 SOCIAL_AUTH_ENABLED_BACKENDS = ('google-oauth',)

@@ -37,9 +37,15 @@
 
     </script>
     <script type="text/javascript" charset="utf-8">
-        function atualizarcomboprojetos(data){
-            alert('oi')
-            $("#combo_projetos").autocomplete({ source: ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby"] });
+
+        function atualizarcomboprojetos(projetos){
+            //var options;
+            //$.each(projetos, function(i, item ) {
+            //    options += "<option value='" + item + "'>" + item + "</option>";
+            //});
+            //$("#combo_projetos").find('option').remove().end().append(options);
+            projetosDataSource = new kendo.data.DataSource({data:projetos});
+            combo_projetos.dataSource = projetosDataSource;
         }
 
         function my_callback(data){
@@ -47,13 +53,35 @@
         }
     </script>
     <script>
-        $(function() {
-            $("#combo_projetos" ).combobox();
-            $("#combo_empresas").combobox({
-                selected: function(event, ui) {
-                    Dajaxice.horasdsconapp.updatecomboprojetos(atualizarcomboprojetos, {'option':ui.item.value});
+        $(document).ready(function() {
+            // create ComboBox from select HTML element
+            var combo_empresas = $("#combo_empresas").kendoComboBox({
+                filter: "contains",
+                suggest: true,
+                index: 3,
+                change: function() {
+                    var value = this.value();
+                    if (value) {
+                        Dajaxice.horasdsconapp.updatecomboprojetos(atualizarcomboprojetos, {'option':value});
+                    } else {
+                        //combo_projetos.enable(false);
+                    }
+                    //combo_projetos.enable();
+                    combo_projetos.value("");
                 }
             });
+            var combo_projetos = $("#combo_projetos").kendoComboBox({
+                autoBind: false,
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Item1", value: "1" },
+                    { text: "Item2", value: "2" }
+                ],
+                filter: "contains",
+                suggest: true,
+                index: 3
+            }).data("kendoComboBox");
         });
     </script>
 
@@ -71,42 +99,25 @@
                     Escolha aqui os projetos nos quais você trabalha atualmente, pois facilitará o lançamento de horas para você.
                 </p>
 
-                <div id="empresas" class="ui-widget">
-                    <label>Escolha a empresa: </label>
-                    <select id="combo_empresas">
-                        {% for empresa in empresas %}
-                            <option value="{{ empresa }}">{{ empresa }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+                    <div id="empresas">
+                        <label>Escolha a empresa: </label>
+                        <select id="combo_empresas" placeholder="Selecione uam empresa...">
+                            {% for empresa in empresas %}
+                                <option value="{{ empresa }}">{{ empresa }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
 
-                <div id="projetos" class="ui-widget">
-                    <label>Escolha um projeto: </label>
-                    <select id="combo_projetos">
-                        {% for projeto in projetos %}
-                            <option value="{{ projeto.projectid }}">{{ projeto.projectid}} - {{ projeto.projectname }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-
+                    <div id="projetos">
+                        <label>Escolha um projeto: </label>
+                        <select id="combo_projetos" placeholder="Selecione um projeto...">
+                            {% for projeto in projetos %}
+                                <option value="{{ projeto.projectid }}">{{ projeto.projectid}} - {{ projeto.projectname }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 </br>
             </div>
-
-            <input type="button" name="rand" value="Get message from server!" id="rand" onclick="Dajaxice.horasdsconapp.example1(callback_example1);">
-
-            <!--
-            <select name="combo1" id="combo1" onchange="Dajaxice.horasdsconapp.updatecombo(atualizarcombo,{'option':this.value})" size="1">
-                <option value="0">Select...</option>
-                <option value="0">Spain</option>
-                <option value="1">France</option>
-                <option value="2">United Kingdom</option>
-            </select>
-            <select name="combo2" id="combo2" onchange="" size="1"></select> -->
-
-
         </form>
-
-
-
     </div>
 {% endblock %}

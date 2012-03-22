@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="teste" type="PythonConfigurationType" factoryName="Python">
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <envs>
+      <env name="PYTHONUNBUFFERED" value="1" />
+    </envs>
+    <option name="SDK_HOME" value="$USER_HOME$/.virtualenvs/locaweb/bin/python2.6" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/horasdsconapp/pmo" />
+    <option name="IS_MODULE_SDK" value="false" />
+    <module name="horasdscon" />
+    <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/horasdsconapp/pmo/teste.py" />
+    <option name="PARAMETERS" value="" />
+    <option name="MULTIPROCESS" value="false" />
+    <RunnerSettings RunnerId="PythonRunner" />
+    <ConfigurationWrapper RunnerId="PythonRunner" />
+    <method />
+  </configuration>
+</component>
