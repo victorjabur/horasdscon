@@ -7,81 +7,58 @@
         .ui-button-icon-only .ui-button-text { padding: 0.35em; }
         .ui-autocomplete-input { margin: 0; padding: 0.48em 0 0.47em 0.45em; }
     </style>
-    <script type="text/javascript" charset="utf-8">
-
-        function callback_example1(data){
-            alert(data.message);
-        }
-
-        function callback_example2(data){
-            for (var i=0; i < data.numbers.length; i++) {
-                alert(data.numbers[i]);
-            }
-        }
-
-        function callback_example3(data){
-            alert(data.result);
-        }
-
-        function callback_example_error(data){
-            alert(data);
-        }
-
-        function callback_complex_example1(data){
-            alert(data.message);
-        }
-
-        function custom_error(){
-            alert('Custom error');
-        }
-
-    </script>
-    <script type="text/javascript" charset="utf-8">
-
-        function atualizarcomboprojetos(projetos){
-            //var options;
-            //$.each(projetos, function(i, item ) {
-            //    options += "<option value='" + item + "'>" + item + "</option>";
-            //});
-            //$("#combo_projetos").find('option').remove().end().append(options);
-            projetosDataSource = new kendo.data.DataSource({data:projetos});
-            combo_projetos.dataSource = projetosDataSource;
-        }
-
-        function my_callback(data){
-            alert('Error ');
-        }
-    </script>
     <script>
         $(document).ready(function() {
-            // create ComboBox from select HTML element
-            var combo_empresas = $("#combo_empresas").kendoComboBox({
+
+            var empresasDataSource = new kendo.data.DataSource({
+                type: "odata",
+                serverFiltering: true,
+                transport: {
+                    read: "http://localhost:8000/ajax/empresas"
+                }
+            });
+
+            var projetosDataSource = new kendo.data.DataSource({
+                type: "odata",
+                serverFiltering: true,
+                transport: {
+                    read: "http://localhost:8000/ajax/projetos"
+                }
+            });
+
+            $("#combo_empresas").kendoComboBox({
+                placeholder: "Selecione uma empresa...",
+                dataTextField: "NomeEmpresa",
+                dataValueField: "IdEmpresa",
+                dataSource: empresasDataSource,
                 filter: "contains",
                 suggest: true,
-                index: 3,
                 change: function() {
                     var value = this.value();
+
                     if (value) {
-                        Dajaxice.horasdsconapp.updatecomboprojetos(atualizarcomboprojetos, {'option':value});
+                        projetosDataSource.filter({
+                            field: "NomeEmpresa",
+                            operator: "eq",
+                            value: value
+                        });
+                        combo_projetos.enable();
                     } else {
-                        //combo_projetos.enable(false);
+                        combo_projetos.enable(false);
                     }
-                    //combo_projetos.enable();
                     combo_projetos.value("");
                 }
             });
+
             var combo_projetos = $("#combo_projetos").kendoComboBox({
+                placeholder: "Selecione um projeto...",
                 autoBind: false,
-                dataTextField: "text",
-                dataValueField: "value",
-                dataSource: [
-                    { text: "Item1", value: "1" },
-                    { text: "Item2", value: "2" }
-                ],
-                filter: "contains",
-                suggest: true,
-                index: 3
+                dataTextField: "NomeProjeto",
+                dataValueField: "IdProjeto",
+                dataSource: projetosDataSource,
+                filter: "contains"
             }).data("kendoComboBox");
+
         });
     </script>
 
@@ -94,27 +71,18 @@
         <form action="/criarplanilha/" method="post">
             {% csrf_token %}
             <div class="header">
-                <h1>Dscon - Aplicativo de Lançamento de Horas</h1>
+                <h1></h1>
                 <p class="description">
                     Escolha aqui os projetos nos quais você trabalha atualmente, pois facilitará o lançamento de horas para você.
                 </p>
-
                     <div id="empresas">
                         <label>Escolha a empresa: </label>
-                        <select id="combo_empresas" placeholder="Selecione uam empresa...">
-                            {% for empresa in empresas %}
-                                <option value="{{ empresa }}">{{ empresa }}</option>
-                            {% endfor %}
-                        </select>
+                        <input id="combo_empresas"/>
                     </div>
 
                     <div id="projetos">
                         <label>Escolha um projeto: </label>
-                        <select id="combo_projetos" placeholder="Selecione um projeto...">
-                            {% for projeto in projetos %}
-                                <option value="{{ projeto.projectid }}">{{ projeto.projectid}} - {{ projeto.projectname }}</option>
-                            {% endfor %}
-                        </select>
+                        <input id="combo_projetos" disabled="disabled"/>
                     </div>
                 </br>
             </div>

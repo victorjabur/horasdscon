@@ -8,9 +8,8 @@ def updatecomboprojetos(request, option):
     lista_projetos = request.session['lista_projetos']
     for projeto in lista_projetos:
         if projeto.company == option:
-            projetos.append(Combo(projeto.projectid, projeto.projectname))
-    #return simplejson.dumps(projetos)
-    return '[{ text: "Item14566", value: "1" },{ text: "Item234355",value: "2" }]'
+            projetos.append(projeto.projectid + ' - ' + projeto.projectname)
+    return simplejson.dumps(projetos)
 
 @dajaxice_register
 def dajaxice_example(request):
@@ -34,9 +33,3 @@ def example3(request, data, name):
 @dajaxice_register
 def error_example(request):
     raise Exception("Some Exception")
-
-
-class Combo:
-    def __init__(self, text='', value=''):
-        self.text = text
-        self.value = value

@@ -5,7 +5,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from dajaxice.core import dajaxice_autodiscover
-from horasdsconapp.views import home, existeplanilha, logout, error, login_error, custom_error, complete, criarplanilha, projetos
+from horasdsconapp.views import home, existeplanilha, logout, error, login_error, custom_error, complete, criarplanilha, projetos, ajax_empresas, ajax_projetos
 import settings
 
 dajaxice_autodiscover()
@@ -24,6 +24,8 @@ urlpatterns = patterns('',
     url(r'^existeplanilha/$', existeplanilha, name='existeplanilha'),
     url(r'^criarplanilha/$', criarplanilha, name='criarplanilha'),
     url(r'^projetos/$', projetos, name='projetos'),
+    url(r'^ajax/empresas/$', ajax_empresas, name='ajax_empresas'),
+    url(r'^ajax/projetos/$', ajax_projetos, name='ajax_projetos'),
     url(r'^error/$', error, name='error'),
     url(r'^login/error/$', login_error, name='error'),
     url(r'^custom_error/$', custom_error, name='custom_error'),
