@@ -1,5 +1,6 @@
 #! /usr/bin/python
 # coding: utf-8
+
 from django.views.decorators.csrf import csrf_protect
 from django.utils import simplejson
 
@@ -22,6 +23,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from forms import CriarPlanilha
 from horasdsconapp.google.spreadsheet import GoogleSpreadsheet
+from horasdsconapp.json.kendo import Kendo
 from horasdsconapp.pmo.pmo import Pmo
 from horasdsconapp.user.user import User
 import settings, re, sys
@@ -80,57 +82,33 @@ def criarprojetos(request):
 
 @login_required
 def ajax_empresas(request):
-    return get_json_kendoui(request, request.session['lista_empresas'], {'value':'IdEmpresa','text':'NomeEmpresa'})
-
-def get_json_kendoui(request, lista=[], dictname={'value':'value', 'text':'text'}):
-    if lista != None:
-        list_items = []
-        if '$filter' in request.GET:
-            filter = request.GET['$filter']
-            filterfunction = re.search(r"(\w*)", filter).group(1)
-            stringfilter = re.search(r"'(.*)'", filter).group(1)
-            lista = filtra_lista(request, filterfunction, lista, stringfilter)
-        for i,f in enumerate(lista):
-            dict = {}
-            dict[dictname['value']] = f
-            dict[dictname['text']] = f
-            list_items.append(dict)
-        data = simplejson.dumps({'d':{'results':list_items, '__count' : str(len(list_items))}})
-    else:
-        data = ''
-    return HttpResponse(request.GET['$callback'] + '(' + data + ')',mimetype='text/javascript;charset=utf-8')
-
-def filtra_lista(request, funcao, lista, stringfiltro):
-    if funcao == 'substringof':
-        lista_filtrada = []
-        for item in lista:
-            if is_string_equals_ignorecase(item, stringfiltro):
-                lista_filtrada.append(item)
-        return lista_filtrada
-
-def is_string_equals_ignorecase(str1, str2):
-    if retirar_acento(str1).lower().find(retirar_acento(str2.lower())) == -1:
-        return False
-    else:
-        return True
-
-def retirar_acento(str):
-    return normalize('NFKD', str.decode(sys.getfilesystemencoding())).encode('ASCII','ignore')
+    kendo = Kendo()
+    combo_empresas = None
+    if 'lista_empresas' in request.session:
+        if 'combo_empresas' not in request.session:
+            combo_empresas = kendo.get_combobox_from_listaempresa(request.session['lista_empresas'])
+            request.session['combo_empresas'] = combo_empresas
+        else:
+            combo_empresas = request.session['combo_empresas']
+    return kendo.get_json_kendoui(request, combo_empresas)
 
 @login_required
 def ajax_projetos(request):
-    option = re.search(r"NomeEmpresa eq '(.*)'", request.GET['$filter']).group(1)
-    projetos = []
-    option = str(option.encode('utf-8'))
-    lista_projetos = request.session['lista_projetos']
-    for projeto in lista_projetos:
-        if projeto.company == option or option == 'Todos':
-            dict = {}
-            dict['IdProjeto'] = projeto.projectid
-            dict['NomeProjeto'] = projeto.projectname
-            projetos.append(dict)
-    data = simplejson.dumps({'d':{'results':projetos}})
-    return HttpResponse(request.GET['$callback'] + '(' + data + ')',mimetype='text/javascript;charset=utf-8')
+    kendo = Kendo()
+    if 'lista_projetos' in request.session:
+        filter = str(request.GET['$filter'].encode('utf-8'))
+        if filter.find('(') == -1:
+            lista_projetos = request.session['lista_projetos']
+            option = int(re.search(r"NomeEmpresa eq '(.*)'", filter).group(1))
+            lista_projetos_selecao = []
+            for projeto in lista_projetos:
+                if projeto.company_id == option or option == 0:
+                    lista_projetos_selecao.append(projeto)
+            request.session['lista_projetos_selecao'] = lista_projetos_selecao
+            combo_projetos = kendo.get_combobox_from_listaprojetos(lista_projetos_selecao)
+        else:
+            combo_projetos = kendo.get_combobox_from_listaprojetos(request.session['lista_projetos_selecao'])
+    return kendo.get_json_kendoui(request, combo_projetos)
 
 @login_required
 @csrf_protect

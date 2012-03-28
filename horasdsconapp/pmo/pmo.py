@@ -3,8 +3,12 @@
 
 import requests, re, sys
 from unicodedata import normalize
+from horasdsconapp.Util import Util
 
 class Pmo:
+
+    def __init__(self):
+        self.util = Util()
 
     def login(self, usuario_pmo=None, senha_pmo=None, request=None, type='complete'):
         if usuario_pmo == None:
@@ -21,7 +25,7 @@ class Pmo:
             return r.cookies
 
     def extrairColaboradorFromPagina(self, pagina):
-        pagina = self.retirar_acento(pagina.content)
+        pagina = self.util.retirar_acento(pagina.content)
         nome_colaborador = re.search(r'Bem-vindo (.*)</td>', pagina).group(1)
         nomes_bem_vindo = nome_colaborador.split(' ')
         colaboradores = re.findall(r"<OPTION VALUE='\d*'>[\w()\s,-\.]*", pagina)
@@ -40,22 +44,20 @@ class Pmo:
     def extrairEmpresasFromPagina(self, pagina):
         lista_empresas = []
         empresas = re.findall(r'<option value=.company..*</option>', pagina)
-        for empresa in empresas:
-            lista_empresas.append(re.search(r"bold...(.*)</option>", empresa).group(1))
+        for i,empresa in enumerate(empresas):
+            nome_empresa = re.search(r"bold...(.*)</option>", empresa).group(1)
+            lista_empresas.append(Empresa(i, nome_empresa))
         return lista_empresas
 
     def extrairProjetosFromPagina(self, pagina):
         lista_projetos = []
         projetos = re.findall(r"<td width=.30%.>\n.*\n</td>.*\n.*\n.*", pagina)
         for projeto in projetos:
-            empresa = re.search(r"<td width..30..>\n\t(.*)\n</td>", projeto).group(1)
+            nome_empresa = re.search(r"<td width..30..>\n\t(.*)\n</td>", projeto).group(1)
             id_projeto = re.search(r"project_id.(\d*)..onmou", projeto).group(1)
             nome_projeto = re.search(r"eout=.nd.....(.*)</a>", projeto).group(1)
-            lista_projetos.append(Projeto(company=empresa, projectid=id_projeto, projectname=nome_projeto))
+            lista_projetos.append(Projeto(company_id=self.getEmpresa_id_from_nome(nome_empresa, self.lista_empresas), projectid=id_projeto, projectname=nome_projeto))
         return lista_projetos
-
-    def retirar_acento(self, str):
-        return normalize('NFKD', str.decode('utf-8')).encode('ASCII','ignore')
 
     def obter_projetos(self,request):
         cookie = self.login(request=request, type='cookie')
@@ -64,6 +66,13 @@ class Pmo:
         pagina = r.content
         self.lista_empresas = self.extrairEmpresasFromPagina(pagina)
         self.lista_projetos = self.extrairProjetosFromPagina(pagina)
+
+    def getEmpresa_id_from_nome(self, nome_empresa, lista_empresas):
+        for empresa in lista_empresas:
+            if self.util.is_string_equals_ignorecase(empresa.company_name, nome_empresa):
+                return empresa.company_id
+        return None
+
 
 class LoginInfo:
     def __init__(self, cookies, pagina):
@@ -75,9 +84,14 @@ class Colaborador:
         self.id = id
         self.nome = nome
 
+class Empresa:
+    def __init__(self, company_id='', company_name=''):
+        self.company_id = company_id
+        self.company_name = company_name
+
 class Projeto:
-    def __init__(self, company='', projectid='', projectcode='', projectname='', projecttype='', taskid='', taskname=''):
-        self.company = company
+    def __init__(self, company_id='', projectid='', projectcode='', projectname='', projecttype='', taskid='', taskname=''):
+        self.company_id = company_id
         self.projectid = projectid
         self.projectcode = projectcode
         self.projectname = projectname

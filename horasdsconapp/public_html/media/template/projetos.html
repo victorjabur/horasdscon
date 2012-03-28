@@ -8,6 +8,12 @@
         .ui-autocomplete-input { margin: 0; padding: 0.48em 0 0.47em 0.45em; }
     </style>
     <script>
+
+        function abcdefg(){
+            var combo_empresas = $("#combo_empresas").data("kendoComboBox");
+            combo_empresas.select(6);
+        }
+
         $(document).ready(function() {
 
             var empresasDataSource = new kendo.data.DataSource({
@@ -26,7 +32,7 @@
                 }
             });
 
-            $("#combo_empresas").kendoComboBox({
+            var combo_empresas = $("#combo_empresas").kendoComboBox({
                 placeholder: "Selecione uma empresa...",
                 dataTextField: "NomeEmpresa",
                 dataValueField: "IdEmpresa",
@@ -48,7 +54,7 @@
                     }
                     combo_projetos.value("");
                 }
-            });
+            }).data("kendoComboBox");
 
             var combo_projetos = $("#combo_projetos").kendoComboBox({
                 placeholder: "Selecione um projeto...",
@@ -56,8 +62,12 @@
                 dataTextField: "NomeProjeto",
                 dataValueField: "IdProjeto",
                 dataSource: projetosDataSource,
-                filter: "contains"
+                filter: "contains",
+                suggest: true
             }).data("kendoComboBox");
+
+            //combo_empresas.select(0);
+
 
         });
     </script>
@@ -68,8 +78,6 @@
 
 {% block content %}
     <div style="margin-left: auto; margin-right: 0">
-        <form action="/criarplanilha/" method="post">
-            {% csrf_token %}
             <div class="header">
                 <h1></h1>
                 <p class="description">
@@ -82,10 +90,10 @@
 
                     <div id="projetos">
                         <label>Escolha um projeto: </label>
-                        <input id="combo_projetos" disabled="disabled"/>
+                        <input id="combo_projetos" disabled="disabled" style="width:550px"/>
                     </div>
                 </br>
             </div>
-        </form>
+            <button id="dfsd" onclick="abcdefg()">kgiygi</button>
     </div>
 {% endblock %}

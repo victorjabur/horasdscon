@@ -13,7 +13,9 @@
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/horasdsconapp/pmo/teste.py" />
     <option name="PARAMETERS" value="" />
     <option name="MULTIPROCESS" value="false" />
+    <RunnerSettings RunnerId="PyDebugRunner" />
     <RunnerSettings RunnerId="PythonRunner" />
+    <ConfigurationWrapper RunnerId="PyDebugRunner" />
     <ConfigurationWrapper RunnerId="PythonRunner" />
     <method />
   </configuration>
