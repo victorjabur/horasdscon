@@ -23,6 +23,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from forms import CriarPlanilha
 from horasdsconapp.google.spreadsheet import GoogleSpreadsheet
+from horasdsconapp.json import kendo
 from horasdsconapp.json.kendo import Kendo
 from horasdsconapp.pmo.pmo import Pmo
 from horasdsconapp.user.user import User
@@ -99,7 +100,7 @@ def ajax_projetos(request):
         filter = str(request.GET['$filter'].encode('utf-8'))
         if filter.find('(') == -1:
             lista_projetos = request.session['lista_projetos']
-            option = int(re.search(r"NomeEmpresa eq '(.*)'", filter).group(1))
+            option = int(re.search(r"IdEmpresa eq '(.*)'", filter).group(1))
             lista_projetos_selecao = []
             for projeto in lista_projetos:
                 if projeto.company_id == option or option == 0:
@@ -109,6 +110,20 @@ def ajax_projetos(request):
         else:
             combo_projetos = kendo.get_combobox_from_listaprojetos(request.session['lista_projetos_selecao'])
     return kendo.get_json_kendoui(request, combo_projetos)
+
+@login_required
+def ajax_tarefas(request):
+    kendo = Kendo()
+    filter = str(request.GET['$filter'].encode('utf-8'))
+    if filter.find('(') == -1:
+        option = int(re.search(r"IdProjeto eq '(.*)'", filter).group(1))
+        pmo = Pmo()
+        lista_tarefas = pmo.extrairTarefasFromIdProjeto(request, option)
+        request.session['lista_tarefas'] = lista_tarefas
+        combo_tarefas = kendo.get_combobox_from_listatarefas(lista_tarefas)
+    else:
+        combo_tarefas = kendo.get_combobox_from_listatarefas(request.session['lista_tarefas'])
+    return kendo.get_json_kendoui(request, combo_tarefas)
 
 @login_required
 @csrf_protect

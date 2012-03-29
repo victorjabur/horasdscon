@@ -59,6 +59,32 @@ class Pmo:
             lista_projetos.append(Projeto(company_id=self.getEmpresa_id_from_nome(nome_empresa, self.lista_empresas), projectid=id_projeto, projectname=nome_projeto))
         return lista_projetos
 
+    def extrairTarefasFromIdProjeto(self, request, idProjeto):
+        lista_tarefas = []
+        cookie = self.login(request=request, type='cookie')
+        pagina = requests.get('http://dscon.com.br/pmo/index.php?m=projects&a=view&project_id=' + str(idProjeto), cookies=cookie).content
+        acabou = False
+        while acabou == False:
+            tarefas = re.findall(r"&project_id=\d*&open_task_id=\d*\"><img", pagina)
+            if len(tarefas) > 0:
+                tarefa = tarefas.pop()
+                id_projeto = re.search(r"&project_id=(\d*)&op", tarefa).group(1)
+                open_task_id = re.search(r"&open_task_id=(\d*)\"><img", tarefa).group(1)
+                pagina = requests.get('http://dscon.com.br/pmo/index.php?m=projects&a=view&project_id=' + id_projeto + '&open_task_id=' + open_task_id, cookies=cookie).content
+            else:
+                acabou = True
+        tarefas = re.findall(r"\">&nbsp;<a href=../index.php.m=tasks&a=view&task_id=.*", pagina)
+        for tarefa in tarefas:
+            id_tarefa = re.search(r"task_id.(\d*).log", tarefa).group(1)
+            nome_tarefa = re.search(r"#log\"  >([^<]*)", tarefa).group(1)
+            lista_tarefas.append(Tarefa(id_tarefa, nome_tarefa))
+        tarefas = re.findall(r"expand.gif\" border=\"0\" /></a>&nbsp;<a href=../index.php.m=tasks&a=view&task_id=.*", pagina)
+        for tarefa in tarefas:
+            id_tarefa = re.search(r"task_id.(\d*).log", tarefa).group(1)
+            nome_tarefa = re.search(r"<b><i>(.*)</i></b>", tarefa).group(1)
+            lista_tarefas.append(Tarefa(id_tarefa, nome_tarefa))
+        return lista_tarefas
+
     def obter_projetos(self,request):
         cookie = self.login(request=request, type='cookie')
         post_projetos = {'department':'company_0'}
@@ -88,6 +114,11 @@ class Empresa:
     def __init__(self, company_id='', company_name=''):
         self.company_id = company_id
         self.company_name = company_name
+
+class Tarefa:
+    def __init__(self, id_tarefa='', nome_tarefa=''):
+        self.id_tarefa = id_tarefa
+        self.nome_tarefa = nome_tarefa
 
 class Projeto:
     def __init__(self, company_id='', projectid='', projectcode='', projectname='', projecttype='', taskid='', taskname=''):

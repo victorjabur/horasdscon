@@ -2,18 +2,13 @@
 
 {% block head %}
 
-    <style>
-        .ui-button { margin-left: -1px; }
-        .ui-button-icon-only .ui-button-text { padding: 0.35em; }
-        .ui-autocomplete-input { margin: 0; padding: 0.48em 0 0.47em 0.45em; }
+    <style type="text/css">
+        #empresas{float: left; padding-right: 20px;}
+        #projetos{float: left; padding-right: 20px;}
+        #tarefas{float: left; padding-right: 20px;}
     </style>
+
     <script>
-
-        function abcdefg(){
-            var combo_empresas = $("#combo_empresas").data("kendoComboBox");
-            combo_empresas.select(6);
-        }
-
         $(document).ready(function() {
 
             var empresasDataSource = new kendo.data.DataSource({
@@ -27,8 +22,28 @@
             var projetosDataSource = new kendo.data.DataSource({
                 type: "odata",
                 serverFiltering: true,
+                change: function(e) {
+                    var total = this.total();
+                    if(total == 0){
+                        combo_projetos.enable(false);
+                    }
+                },
                 transport: {
                     read: "http://localhost:8000/ajax/projetos"
+                }
+            });
+
+            var tarefasDataSource = new kendo.data.DataSource({
+                type: "odata",
+                serverFiltering: true,
+                change: function(e) {
+                    var total = this.total();
+                    if(total == 0){
+                        combo_tarefas.enable(false);
+                    }
+                },
+                transport: {
+                    read: "http://localhost:8000/ajax/tarefas"
                 }
             });
 
@@ -44,7 +59,7 @@
 
                     if (value) {
                         projetosDataSource.filter({
-                            field: "NomeEmpresa",
+                            field: "IdEmpresa",
                             operator: "eq",
                             value: value
                         });
@@ -63,11 +78,33 @@
                 dataValueField: "IdProjeto",
                 dataSource: projetosDataSource,
                 filter: "contains",
-                suggest: true
+                suggest: true,
+                change: function() {
+                    var value = this.value();
+
+                    if (value) {
+                        tarefasDataSource.filter({
+                            field: "IdProjeto",
+                            operator: "eq",
+                            value: value
+                        });
+                        combo_tarefas.enable();
+                    } else {
+                        combo_tarefas.enable(false);
+                    }
+                    combo_tarefas.value("");
+                }
             }).data("kendoComboBox");
 
-            //combo_empresas.select(0);
-
+            var combo_tarefas = $("#combo_tarefas").kendoComboBox({
+                placeholder: "Selecione uma tarefa...",
+                autoBind: false,
+                dataTextField: "NomeTarefa",
+                dataValueField: "IdTarefa",
+                dataSource: tarefasDataSource,
+                filter: "contains",
+                suggest: true
+            }).data("kendoComboBox");
 
         });
     </script>
@@ -92,8 +129,13 @@
                         <label>Escolha um projeto: </label>
                         <input id="combo_projetos" disabled="disabled" style="width:550px"/>
                     </div>
+
+                    <div id="tarefas">
+                        <label>Escolha uma tarefa: </label>
+                        <input id="combo_tarefas" disabled="disabled" style="width:550px"/>
+                    </div>
+
                 </br>
             </div>
-            <button id="dfsd" onclick="abcdefg()">kgiygi</button>
     </div>
 {% endblock %}

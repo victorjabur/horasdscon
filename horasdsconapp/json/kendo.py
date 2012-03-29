@@ -23,6 +23,12 @@ class Kendo:
             lista_items.append(ItemCombo('IdProjeto', projeto.projectid, 'NomeProjeto', projeto.projectid + " - " + projeto.projectname))
         return Combo(lista_items)
 
+    def get_combobox_from_listatarefas(self, lista_tarefas):
+        lista_items = []
+        for tarefa in lista_tarefas:
+            lista_items.append(ItemCombo('IdTarefa', tarefa.id_tarefa, 'NomeTarefa', tarefa.id_tarefa + " - " + tarefa.nome_tarefa))
+        return Combo(lista_items)
+
     def get_json_kendoui(self, request, combobox):
         if combobox != None and len(combobox.list_items) > 0:
             list_items = []
@@ -40,7 +46,7 @@ class Kendo:
                 list_items.append(dict)
             data = simplejson.dumps({'d':{'results':list_items, '__count' : str(len(list_items))}})
         else:
-            data = ''
+            data = simplejson.dumps({'d':{'results':[], '__count' : '0'}})
         return HttpResponse(request.GET['$callback'] + '(' + data + ')',mimetype='text/javascript;charset=utf-8')
 
     def filtra_combo(self, request, funcao, combobox, stringfiltro):
