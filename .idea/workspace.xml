@@ -70,8 +70,10 @@
       <file leaf-file-name="pmo.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/horasdsconapp/pmo/pmo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="84" selection-start="3477" selection-end="3477" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="23" column="13" selection-start="973" selection-end="973" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#36#60#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,7 +81,7 @@
       <file leaf-file-name="horas.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Utilitarios/horas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="1162" selection-end="1162" vertical-scroll-proportion="0.48816568">
+            <state line="11" column="38" selection-start="329" selection-end="329" vertical-scroll-proportion="-0.18257262">
               <folding />
             </state>
           </provider>
@@ -333,13 +335,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="File.Encoding" />
     <property name="last_opened_file_path" value="$USER_HOME$/.virtualenvs/locaweb/lib/python2.6" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -485,25 +487,15 @@
       <option name="MULTIPROCESS" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <module name="horasdscon" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <option name="launchJavascriptDebuger" value="false" />
+    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
+      <module name="" />
+      <option name="PORT" value="10000" />
+      <option name="HOST" value="localhost" />
+      <option name="USE_MAPPING" value="false" />
+      <option name="REMOTE_ROOT" value="" />
+      <option name="LOCAL_ROOT" value="" />
+      <option name="REDIRECT_OUTPUT" value="true" />
+      <option name="SUSPEND_AFTER_CONNECT" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -525,15 +517,25 @@
       <option name="PUREUNITTEST" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
-      <module name="" />
-      <option name="PORT" value="10000" />
-      <option name="HOST" value="localhost" />
-      <option name="USE_MAPPING" value="false" />
-      <option name="REMOTE_ROOT" value="" />
-      <option name="LOCAL_ROOT" value="" />
-      <option name="REDIRECT_OUTPUT" value="true" />
-      <option name="SUSPEND_AFTER_CONNECT" value="true" />
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="horasdscon" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -608,11 +610,11 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19935484" sideWeight="0.4247911" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19354838" sideWeight="0.729805" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19612904" sideWeight="0.729805" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18802229" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19935484" sideWeight="0.4178273" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44634527" sideWeight="0.49756098" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27019498" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27019498" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -725,9 +727,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/horasdsconapp/public_html/media/template/projetos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="45" selection-start="3012" selection-end="3012" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="86" column="45" selection-start="3012" selection-end="3012" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/urls.py">
@@ -752,12 +752,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/horasdsconapp/pmo/pmo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="84" selection-start="3477" selection-end="3477" vertical-scroll-proportion="0.0" />
+        <state line="23" column="13" selection-start="973" selection-end="973" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#36#60#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Utilitarios/horas.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="1162" selection-end="1162" vertical-scroll-proportion="0.48816568">
+        <state line="11" column="38" selection-start="329" selection-end="329" vertical-scroll-proportion="-0.18257262">
           <folding />
         </state>
       </provider>
